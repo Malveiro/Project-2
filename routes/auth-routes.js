@@ -9,6 +9,7 @@ router.get("/signup", (req, res, next) => {
 });
 router.post("/signup", (req, res, next) => {
   const username = req.body.username;
+  const email = req.body.email;
   const password = req.body.password;
   const password2 = req.body.password2;
   if (username === "" || password === "") {
@@ -36,10 +37,11 @@ router.post("/signup", (req, res, next) => {
       const hashPass = bcrypt.hashSync(password, salt);
       User.create({
         username,
+        email,
         password: hashPass
       })
         .then(() => {
-          res.redirect("/");
+          res.redirect("/list");
         })
         .catch(error => {
           console.log(error);
@@ -57,6 +59,7 @@ router.get("/login", (req, res, next) => {
 router.post("/login", (req, res, next) => {
   const theUsername = req.body.username;
   const thePassword = req.body.password;
+  console.log(req.body)
   if (theUsername === "" || thePassword === "") {
     res.render("auth/login", {
       errorMessage: "Please enter both, username and password to sign up."
@@ -73,8 +76,9 @@ router.post("/login", (req, res, next) => {
       }
       if (bcrypt.compareSync(thePassword, user.password)) {
         // Save the login in the session!
+        console.log('Done!');
         req.session.currentUser = user;
-        res.redirect("/");
+        res.redirect("/list");
       } else {
         res.render("auth/login", {
           errorMessage: "Incorrect password"
