@@ -54,11 +54,40 @@ router.get("/details/:logId", (req, res, next) => {
   Log.findById({ _id: req.params.logId })
     .populate("log")
     .then(theLog => {
-      //console.log("The Book", theBook);
+      console.log("The Book", theLog);
       res.render("details", { logs: theLog });
     })
     .catch(error => {
       console.log("Error: ", error);
+    });
+});
+
+
+router.get("/edit", (req, res, next) => {
+  let logID = req.query.log_id;
+  //Fetch the book using Mongoose using findById
+  console.log(logID);
+  Log.findById(logID)
+  .populate("log")
+    .then(log => {
+      console.log(log);
+      res.render("edit", { log });
+    })
+    .catch(error => {
+      console.log("Error", error);
+    });
+});
+
+router.post("/edit", (req, res) => {
+  let logID = req.query.log_id;
+  const { machine, date, synthesis, otherTechnician, description } = req.body;
+  //Find author by name Author.find
+  Log.update({ _id: req.query.log_id }, { $set: { machine, date, synthesis, otherTechnician, description } })
+    .then(() => {
+      res.redirect("/list");
+    })
+    .catch(error => {
+      console.log(error);
     });
 });
 
