@@ -57,7 +57,7 @@ router.get("/login", (req, res, next) => {
 });
 
 router.post("/login", (req, res, next) => {
-  const theUsername = req.body.username;
+  const theUsername =  req.body.username;
   const thePassword = req.body.password;
   console.log(req.body)
   if (theUsername === "" || thePassword === "") {
