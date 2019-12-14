@@ -1,17 +1,13 @@
 <h1>List</h1>
 
-<form action="/login">
-  <button>Log In</button>
-</form>
+<a href="/login">Log In</a>
 
-<form action="/signup">
-  <button>Sign Up</button>
-</form>
+<a href="/signup">sign up</a>
 
-<form action="/list">
-  <button>Log out</button>
-</form>
+<a href="/list">Log Out</a>
 
-<form action="/add">
-  <button>Add New</button>
-</form>
+<a href="/add">Add New</a>
+
+{{#each logs}}
+<a href="/list/{{this._id}}">{{this.machine}}</a>
+{{/each}}
