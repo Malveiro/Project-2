@@ -29,10 +29,39 @@ router.get('/home', (req, res, next) => {
 router.get('/list', (req, res, next) => {
   res.render('list');
 });
-
+/*
 router.get('/details', (req, res, next) => {
-  res.render('list');
+  res.render('details');
+});*/
+
+router.get("/details", (req, res) => {
+  // allows the front-end to get info from the front end - entry point
+  Log.find()
+    .then(allLogsFromDB => {
+      // Backend requesting data from Mongo
+      //console.log("Retrieve all books from DB: ", allBooksFromDB);
+      res.render("details", { logs: allLogsFromDB });
+      //Backend is responding to the front end with the data that was got from mongo
+    })
+    .catch(error => {
+      //console.log("Error while retrieving the books");
+    });
 });
+
+
+router.get("/details/:logId", (req, res, next) => {
+  //console.log("The ID from the URL is: ", req.params.bookId);
+  Log.findById({ _id: req.params.logId })
+    .populate("log")
+    .then(theLog => {
+      //console.log("The Book", theBook);
+      res.render("details", { logs: theLog });
+    })
+    .catch(error => {
+      console.log("Error: ", error);
+    });
+});
+
 
 router.get('/add', (req, res, next) => {
   res.render('add');

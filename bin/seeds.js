@@ -6,14 +6,26 @@ mongoose.connect(`mongodb://localhost/${dbName}`);
 
 const log = [
   {
-  machine: "MO1",
-  model: 'GT',
-  info: 'comprada em janeiro',
-  date: '2018-05-05',
-  synthesis: 'vvvvfvfv',
-  technician: 'ze',
-  description: 'descrip da manut'
-  }
+    machine: "M1",
+    date: "2019-05-05",
+    synthesis: "repair",
+    otherTechnician: "none",
+    description: "many things"
+  },
+  {
+    machine: "M2",
+    date: "2019-05-05",
+    synthesis: "repair",
+    otherTechnician: "none",
+    description: "many things"
+  },
+  {
+    machine: "M3",
+    date: "2019-05-05",
+    synthesis: "repair",
+    otherTechnician: "none",
+    description: "many things"
+  },
 ]
 
 

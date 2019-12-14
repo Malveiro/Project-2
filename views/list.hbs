@@ -8,6 +8,9 @@
 
 <a href="/add">Add New</a>
 
+<br>
+
 {{#each logs}}
-<a href="/list/{{this._id}}">{{this.machine}}</a>
+<a href="/details/{{this._id}}">{{this.machine}}  {{this.date}}  {{this.synthesis}}</a>
+<br>
 {{/each}}
