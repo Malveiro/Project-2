@@ -8,10 +8,24 @@ router.get('/', (req, res, next) => {
   res.render('home');
 });
 
+router.get("/list", (req, res) => {
+  // allows the front-end to get info from the front end - entry point
+  Log.find()
+    .then(allLogsFromDB => {
+      // Backend requesting data from Mongo
+      //console.log("Retrieve all books from DB: ", allBooksFromDB);
+      res.render("list", { logs: allLogsFromDB });
+      //Backend is responding to the front end with the data that was got from mongo
+    })
+    .catch(error => {
+      //console.log("Error while retrieving the books");
+    });
+});
+/*
 router.get('/home', (req, res, next) => {
   res.render('home');
 });
-
+*/
 router.get('/list', (req, res, next) => {
   res.render('list');
 });
