@@ -57,6 +57,8 @@ router.get("/login", (req, res, next) => {
 });
 
 router.post("/login", (req, res, next) => {
+  console.log('loggin in!');
+
   const theUsername = req.body.username;
   const thePassword = req.body.password;
   console.log(req.body)
@@ -80,6 +82,7 @@ router.post("/login", (req, res, next) => {
         req.session.currentUser = user;
         res.redirect("/list");
       } else {
+        console.log('undone!');
         res.render("auth/login", {
           errorMessage: "Incorrect password"
         });

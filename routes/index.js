@@ -62,7 +62,7 @@ router.get("/details/:logId", (req, res, next) => {
     });
 });
 
-
+/*
 router.get("/edit", (req, res, next) => {
   let logID = req.query.log_id;
   //Fetch the book using Mongoose using findById
@@ -77,7 +77,7 @@ router.get("/edit", (req, res, next) => {
       console.log("Error", error);
     });
 });
-
+*//*
 router.post("/edit", (req, res) => {
   let logID = req.query.log_id;
   const { machine, date, synthesis, otherTechnician, description } = req.body;
@@ -90,11 +90,12 @@ router.post("/edit", (req, res) => {
       console.log(error);
     });
 });
-
-
+*/
+/*
 router.get('/add', (req, res, next) => {
   res.render('add');
 });
+*/
 
 router.post('/list', (req, res) => {
   const {
@@ -120,11 +121,11 @@ router.post('/list', (req, res) => {
     });
 });
 
-
+/*
 router.get('/machine', (req, res, next) => {
   res.render('machine');
 });
-
+*/
 router.post('/add', (req, res) => {
   const {
     machine,
