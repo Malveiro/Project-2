@@ -1,12 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const Log = require("../models/log");
+const Machine = require("../models/machine");
 
 router.get("/", (req, res, next) => {
   res.render("home");
 });
 
 router.use((req, res, next) => {
+  console.log(req.session)
   if (req.session.currentUser) {
     // <== if there's user in the session (user is logged in)
     next(); // ==> go to the next route ---
