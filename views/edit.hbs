@@ -1,6 +1,11 @@
 <form action="/edit?log_id={{log._id}}" method="POST">
   <label for="">Machine</label>
-  <input type="text" name="machine" value="{{log.machine}}">
+   <select name="machine" id="machine">
+    <option>Choose a machine</option>
+      {{#each machines}}
+        <option value="{{this._id}}" {{{isSelected this.machine ../log.machine.machine}}}>{{this.machine}}</option>
+      {{/each}}
+  </select>
   <label for="">Date</label>
   <input type="text" name="date" value="{{log.date}}">
   <label for="">Synthesis</label>

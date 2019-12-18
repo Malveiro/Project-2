@@ -11,6 +11,18 @@ const path         = require('path');
 const session      = require('express-session');
 const MongoStore   = require('connect-mongo')(session);
 
+hbs.registerHelper('dateFormat', require('handlebars-dateformat'));
+
+hbs.registerHelper('isSelected', ( machine, logMachine ) => {
+  console.log("machine", machine);
+  console.log("logMachine", logMachine);
+  if (machine === logMachine) {
+    console.log("found it");
+    return 'selected';
+  } else {
+    return '';
+  }
+});
 
 mongoose
   .connect('mongodb://localhost/project-2', {useNewUrlParser: true})

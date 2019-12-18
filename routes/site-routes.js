@@ -1,37 +1,52 @@
 const express = require("express");
 const router = express.Router();
-const Log = require('../models/log');
+const Log = require("../models/log");
 
 router.get("/", (req, res, next) => {
   res.render("home");
 });
 
 router.use((req, res, next) => {
-  if (req.session.currentUser) { // <== if there's user in the session (user is logged in)
+  if (req.session.currentUser) {
+    // <== if there's user in the session (user is logged in)
     next(); // ==> go to the next route ---
-  } else {                          //    |
-    res.redirect("/");         //    |
-  }                                 //    |
-}); // ------------------------------------                                
-//     | 
+  } else {
+    //    |
+    res.redirect("/"); //    |
+  } //    |
+}); // ------------------------------------
+//     |
 //     V
 router.get("/machine", (req, res, next) => {
   res.render("machine");
 });
 
-router.get('/add', (req, res, next) => {
-  res.render('add');
+router.get("/add", (req, res, next) => {
+  Machine.find()
+    .then(machines => {
+      res.render("add", {
+        machines
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.render("error", {
+        errorMessage: err.message
+      });
+    });
 });
 
 router.get("/edit", (req, res, next) => {
   let logID = req.query.log_id;
   //Fetch the book using Mongoose using findById
   console.log(logID);
-  Log.findById(logID)
-  .populate("log")
-    .then(log => {
+  Promise.all([Log.findById(logID).populate("machine"), Machine.find()])
+    .then(([log, machines]) => {
       console.log(log);
-      res.render("edit", { log });
+      res.render("edit", {
+        log,
+        machines
+      });
     })
     .catch(error => {
       console.log("Error", error);
