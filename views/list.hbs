@@ -14,9 +14,29 @@
 <br>
 <br>
 
-<a href="">All</a>
-<a href="">Machine</a>
-<a href="">Date</a>
+
+
+  <button type="submit">All</button>
+
+
+<form action="/list" method="GET">
+  <label for="">Machine</label>
+ <select name="machine" id="machine">
+    <option>Choose a machine</option>
+      {{#each machines}}
+        <option value="{{this._id}}">{{this.machine}}</option>
+      {{/each}}
+  </select>
+  <button type="submit">Submit</button>
+</form>
+
+<form action="/list" method="GET">
+  <label for="">Date</label>
+  <input type="date" name="date">
+  <button type="submit">Submit</button>
+</form>
+
+
 
 <br>
 <br>
