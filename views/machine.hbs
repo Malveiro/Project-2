@@ -17,4 +17,8 @@
   <button type="submit">Submit</button>
 </form>
 
+{{#if errorMessage}}
+    <div class="error-message">{{ errorMessage }}</div>
+{{/if}}
+
 <a href="/list">Cancel</a>
