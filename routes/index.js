@@ -11,6 +11,7 @@ router.get('/', (req, res, next) => {
 router.get("/list", (req, res) => {
   // allows the front-end to get info from the front end - entry point
   Log.find()
+    .populate('machine')
     .then(allLogsFromDB => {
       // Backend requesting data from Mongo
       //console.log("Retrieve all books from DB: ", allBooksFromDB);
@@ -18,7 +19,7 @@ router.get("/list", (req, res) => {
       //Backend is responding to the front end with the data that was got from mongo
     })
     .catch(error => {
-      //console.log("Error while retrieving the books");
+      console.log("Error while retrieving the books", error);
     });
 });
 /*
@@ -54,7 +55,7 @@ router.get("/details/:logId", (req, res, next) => {
   Log.findById({ _id: req.params.logId })
     .populate("log")
     .then(theLog => {
-      console.log("The Book", theLog);
+      console.log("The Log", theLog);
       res.render("details", { logs: theLog });
     })
     .catch(error => {
@@ -62,40 +63,6 @@ router.get("/details/:logId", (req, res, next) => {
     });
 });
 
-/*
-router.get("/edit", (req, res, next) => {
-  let logID = req.query.log_id;
-  //Fetch the book using Mongoose using findById
-  console.log(logID);
-  Log.findById(logID)
-  .populate("log")
-    .then(log => {
-      console.log(log);
-      res.render("edit", { log });
-    })
-    .catch(error => {
-      console.log("Error", error);
-    });
-});
-*//*
-router.post("/edit", (req, res) => {
-  let logID = req.query.log_id;
-  const { machine, date, synthesis, otherTechnician, description } = req.body;
-  //Find author by name Author.find
-  Log.update({ _id: req.query.log_id }, { $set: { machine, date, synthesis, otherTechnician, description } })
-    .then(() => {
-      res.redirect("/list");
-    })
-    .catch(error => {
-      console.log(error);
-    });
-});
-*/
-/*
-router.get('/add', (req, res, next) => {
-  res.render('add');
-});
-*/
 
 router.post('/list', (req, res) => {
   const {
@@ -121,11 +88,6 @@ router.post('/list', (req, res) => {
     });
 });
 
-/*
-router.get('/machine', (req, res, next) => {
-  res.render('machine');
-});
-*/
 router.post('/add', (req, res) => {
   const {
     machine,
@@ -145,11 +107,5 @@ router.post('/add', (req, res) => {
       console.log(error);
     });
 });
-
-/*
-router.get('/login', (req, res, next) => {
-  res.render('auth/login');
-});
-*/
 
 module.exports = router;

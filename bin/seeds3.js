@@ -9,6 +9,16 @@ const machine = [
     machine: 'm1',
     model: '12',
     info: 'none'
+  },
+  {
+    machine: 'm2',
+    model: '13',
+    info: 'blá'
+  },
+  {
+    machine: 'm1',
+    model: '13',
+    info: 'blá'
   }
 ]
 

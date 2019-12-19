@@ -6,7 +6,12 @@
 
 <form action="/list" method="POST">
   <label for="">Machine</label>
-  <input type="text" name="machine">
+ <select name="machine" id="machine">
+    <option>Choose a machine</option>
+      {{#each machines}}
+        <option value="{{this._id}}">{{this.machine}}</option>
+      {{/each}}
+  </select>
   <label for="">Date</label>
   <input type="date" name="date">
   <label for="">Synthesis</label>

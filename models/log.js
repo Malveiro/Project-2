@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema   = mongoose.Schema;
 const logSchema = new Schema({
-  machine: String,
+  machine: { type : Schema.Types.ObjectId, ref: 'Machine' },
   date: Date,
   synthesis: String,
   otherTechnician: String,

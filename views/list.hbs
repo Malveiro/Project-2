@@ -11,8 +11,20 @@
 <a href="/add">Add New</a>
 
 <br>
+<br>
+<br>
+
+<a href="">All</a>
+<a href="">Machine</a>
+<a href="">Date</a>
+
+<br>
+<br>
+<br>
+  
+
 
 {{#each logs}}
-<a href="/details/{{this._id}}">{{this.machine}}  {{this.date}}  {{this.synthesis}}</a>
+<a href="/details/{{this._id}}">{{this.machine.machine}}  {{dateFormat this.date "DD/MM/YYYY"}}  {{this.synthesis}}</a>
 <br>
 {{/each}}
