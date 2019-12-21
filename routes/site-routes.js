@@ -9,7 +9,7 @@ router.get("/", (req, res, next) => {
 
 router.use((req, res, next) => {
   console.log(req.session)
-  if (req.session.currentUser) {
+  if (req.session.user) {
     // <== if there's user in the session (user is logged in)
     next(); // ==> go to the next route ---
   } else {

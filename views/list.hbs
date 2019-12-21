@@ -1,12 +1,19 @@
 <h1>List</h1>
 
-<a href="/login">Log In</a>
+{{#if user}}
+Welcome {{user.username}}
+  <form action="/logout" method="POST" id="form">
+    <button type="submit">Log Out</button>
+  </form>
 
-<a href="/signup">sign up</a>
+{{else}}
+  <a href="/login">Log In</a>
 
-<form action="/logout" method="POST" id="form">
-  <button type="submit">Log Out</button>
-</form>
+  <a href="/signup">sign up</a>
+{{/if}}
+
+<br>
+<br>
 
 <a href="/add">Add New</a>
 
@@ -44,3 +51,7 @@
 <a href="/details/{{this._id}}">{{this.machine.machine}}  {{dateFormat this.date "DD/MM/YYYY"}}  {{this.synthesis}}</a>
 <br>
 {{/each}}
+
+<div class="api">
+  current temperature: {{temp}}ºC
+</div>

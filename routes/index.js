@@ -2,17 +2,28 @@ const express = require('express');
 const router  = express.Router();
 const Machine = require('../models/machine');
 const Log = require('../models/log');
+const weather = require('openweather-apis');
+weather.setLang('pt');
+weather.setCity('Lisbon');
+weather.setUnits('metric');
+weather.setAPPID("f56f8d4ec36f3c9e29631c3c465879f8");
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('home');
+  weather.getTemperature((err, temp)=>{
+    res.render("home", { temp});
+  });
+  //res.render('home');
 });
 
 router.get("/list", (req, res) => {
   // allows the front-end to get info from the front end - entry point
+
  Machine.find()
   .then((allMachinesFromDB) => {
     let filterMachine = req.query.machine;
+    console.log("user", req.session.user);
+    let user = req.session.user;
     Log.find()
     .populate('machine')
     .then(allLogsFromDB => {
@@ -24,8 +35,12 @@ router.get("/list", (req, res) => {
       } else {
         logsToShow = allLogsFromDB;
       }
+
+      weather.getTemperature((err, temp)=>{
+        res.render("list", { logs: logsToShow, machines: allMachinesFromDB, user, temp});
+      });
       // Backend requesting data from Mongo
-      res.render("list", { logs: logsToShow, machines: allMachinesFromDB });
+     
       //Backend is responding to the front end with the data that was got from mongo
     })
     .catch(error => {
@@ -42,7 +57,9 @@ router.get("/details", (req, res) => {
     .then(allLogsFromDB => {
       // Backend requesting data from Mongo
       //console.log("Retrieve all books from DB: ", allBooksFromDB);
-      res.render("details", { logs: allLogsFromDB });
+      let userAuthenticated = req.session.currentUser ? true : false;
+      res.render("details", { logs: allLogsFromDB,
+      userAuthenticated });
       //Backend is responding to the front end with the data that was got from mongo
     })
     .catch(error => {
