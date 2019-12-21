@@ -14,7 +14,7 @@ router.use((req, res, next) => {
     next(); // ==> go to the next route ---
   } else {
     //    |
-    res.redirect("/"); //    |
+    res.redirect("/login"); //    |
   } //    |
 }); // ------------------------------------
 //     |
