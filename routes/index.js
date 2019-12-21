@@ -12,11 +12,20 @@ router.get("/list", (req, res) => {
   // allows the front-end to get info from the front end - entry point
  Machine.find()
   .then((allMachinesFromDB) => {
+    let filterMachine = req.query.machine;
     Log.find()
     .populate('machine')
     .then(allLogsFromDB => {
+      let logsToShow;
+      if (filterMachine) {
+        logsToShow = allLogsFromDB.filter((log) => {
+          return log.machine._id.toString() === filterMachine.toString();
+        });
+      } else {
+        logsToShow = allLogsFromDB;
+      }
       // Backend requesting data from Mongo
-      res.render("list", { logs: allLogsFromDB, machines: allMachinesFromDB });
+      res.render("list", { logs: logsToShow, machines: allMachinesFromDB });
       //Backend is responding to the front end with the data that was got from mongo
     })
     .catch(error => {
@@ -92,13 +101,13 @@ router.post('/add', (req, res) => {
     info
   } = req.body;
   const newMachine = new Machine({
-    machine,
+    "machine": machine.toUpperCase(),
     model,
     info
   });
 
   Machine.findOne({
-    "machine": machine
+    "machine": machine.toUpperCase()
   })
     .then(machine => {
       if (machine !== null) {
