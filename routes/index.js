@@ -110,6 +110,7 @@ router.post('/add', (req, res) => {
     "machine": machine.toUpperCase()
   })
     .then(machine => {
+
       if (machine !== null) {
         
         res.render("machine", {
