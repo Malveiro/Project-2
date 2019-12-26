@@ -1,5 +1,33 @@
-<h1>Add</h1>
+<form action="/logout" method="POST" id="form">
+  <button class="pull-right log-out" type="submit">Log Out</button>
+</form>
 
+<form class="form" action="/list" method="POST">
+  <label for="">Machine</label><br>
+ <select name="machine" id="machine">
+    <option>Choose a machine</option>
+      {{#each machines}}
+        <option value="{{this._id}}">{{this.machine}}</option>
+      {{/each}}
+  </select><br><br>
+  <label for="">Date</label><br>
+  <input type="date" name="date"><br><br>
+  <label for="">Synthesis</label><br>
+  <input type="text" name="synthesis"><br><br>
+  <label for="">Other Technician</label><br>
+  <input type="string" name="otherTechnician"><br><br>
+  <label for="">Description</label><br>
+  <textarea rows="4" cols="50"></textarea><br><br>
+  <button type="submit">Submit</button>
+</form>
+
+
+
+<a href="/machine">Add New Machine</a>
+<br>
+<a href="/list">Cancel</a>
+
+<!--
 <form action="/logout" method="POST" id="form">
   <button type="submit">Log Out</button>
 </form>
@@ -22,9 +50,4 @@
   <input type="string" name="description">
   <button type="submit">Submit</button>
 </form>
-
-
-
-<a href="/machine">Add New Machine</a>
-
-<a href="/list">Cancel</a>
+-->
