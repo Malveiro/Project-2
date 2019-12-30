@@ -3,13 +3,13 @@
 {{#if user}}
 Welcome {{user.username}}
   <form action="/logout" method="POST" id="form">
-    <button type="submit">Log Out</button>
+    <button class="pull-right logout" type="submit">Log Out</button>
   </form>
 
 {{else}}
-  <a href="/login">Log In</a>
+  <a class="pull-right signup" href="/signup">Sign up</a>
 
-  <a href="/signup">sign up</a>
+  <a class="pull-right login" href="/login">Log In</a>
 {{/if}}
 
 <br>
