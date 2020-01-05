@@ -1,4 +1,4 @@
-<h1>List</h1>
+<h4>List</h4>
 
 {{#if user}}
 Welcome {{user.username}}
@@ -21,12 +21,13 @@ Welcome {{user.username}}
 <br>
 <br>
 
-<form action="/list" method="GET">
+<h4>Select:</h4>
+
+<form class="list-forms" action="/list" method="GET">
   <button type="submit">All</button>
 </form>
 
-
-<form action="/list" method="GET">
+<form class="list-forms" action="/list" method="GET">
   <label for="">Machine</label>
  <select name="machine" id="machine">
     <option>Choose a machine</option>
@@ -37,21 +38,36 @@ Welcome {{user.username}}
   <button type="submit">Submit</button>
 </form>
 
-
-
-
-
 <br>
 <br>
 <br>
   
 
-
-{{#each logs}}
-<a href="/details/{{this._id}}">{{this.machine.machine}}  {{dateFormat this.date "DD/MM/YYYY"}}  {{this.synthesis}}</a>
-<br>
-{{/each}}
+<table class="grid">
+  <tr>
+    <th class="th">Machine</th>
+    <th class="th">Date</th>
+    <th class="th">Synthesis</th>
+  </tr>
+  <tr>
+    <td class="td">{{#each logs}}
+    <a href="/details/{{this._id}}">{{this.machine.machine}}</a><br>
+      {{/each}}</td>
+    <td class="td">{{#each logs}}
+    <a href="/details/{{this._id}}">{{dateFormat this.date "DD/MM/YYYY"}}</a><br>
+      {{/each}}</td>
+    <td class="td">{{#each logs}}
+    <a href="/details/{{this._id}}">{{this.synthesis}} </a><br>
+      {{/each}}</td>
+      </tr>
+</table>
 
 <div class="api">
   current temperature: {{temp}}ºC
 </div>
+<!--
+{{#each logs}}
+    <a href="/details/{{this._id}}">{{this.machine.machine}}  {{dateFormat this.date "DD/MM/YYYY"}}  {{this.synthesis}}</a>
+    <br>
+  {{/each}}
+  -->
