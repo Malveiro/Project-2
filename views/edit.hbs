@@ -7,7 +7,7 @@
       {{/each}}
   </select>
   <label for="">Date</label>
-  <input type="date" name="date" value="{{log.date}}">
+  <input type="date" name="date" value="{{dateFormat log.date "YYYY-MM-DD"}}">
   <label for="">Synthesis</label>
   <input type="text" name="synthesis" value="{{log.synthesis}}">
   <label for="">Other Technician</label>

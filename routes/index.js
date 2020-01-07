@@ -33,6 +33,7 @@ router.get("/list", (req, res) => {
 
 router.get("/details", (req, res) => {
   Log.find()
+  .populate("machine")
     .then(allLogsFromDB => {
       let userAuthenticated = req.session.currentUser ? true : false;
       res.render("details", { logs: allLogsFromDB, userAuthenticated });
@@ -43,7 +44,7 @@ router.get("/details", (req, res) => {
 
 router.get("/details/:logId", (req, res, next) => {
   Log.findById({ _id: req.params.logId })
-    .populate("log")
+    .populate("machine")
     .then(theLog => {
       console.log("The Log", theLog);
       res.render("details", { logs: theLog });
