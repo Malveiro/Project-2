@@ -17,7 +17,8 @@
   <label for="">Other Technician</label><br>
   <input type="string" name="otherTechnician"><br><br>
   <label for="">Description</label><br>
-  <textarea rows="4" cols="50"></textarea><br><br>
+  <input type="string" name="description">
+  {{!-- <textarea rows="4" cols="50"></textarea><br><br> --}}
   <button type="submit">Submit</button>
 </form>
 
@@ -27,27 +28,3 @@
 <br>
 <a href="/list">Cancel</a>
 
-<!--
-<form action="/logout" method="POST" id="form">
-  <button type="submit">Log Out</button>
-</form>
-
-<form action="/list" method="POST">
-  <label for="">Machine</label>
- <select name="machine" id="machine">
-    <option>Choose a machine</option>
-      {{#each machines}}
-        <option value="{{this._id}}">{{this.machine}}</option>
-      {{/each}}
-  </select>
-  <label for="">Date</label>
-  <input type="date" name="date">
-  <label for="">Synthesis</label>
-  <input type="text" name="synthesis">
-  <label for="">Other Technician</label>
-  <input type="string" name="otherTechnician">
-  <label for="">Description</label>
-  <input type="string" name="description">
-  <button type="submit">Submit</button>
-</form>
--->

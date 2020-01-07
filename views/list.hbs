@@ -51,10 +51,10 @@ Welcome {{user.username}}
   </tr>
   <tr>
     <td class="td">{{#each logs}}
-    <a href="/details/{{this._id}}">{{this.machine.machine}}</a><br>
+    <a>{{this.machine.machine}}</a><br>
       {{/each}}</td>
     <td class="td">{{#each logs}}
-    <a href="/details/{{this._id}}">{{dateFormat this.date "DD/MM/YYYY"}}</a><br>
+    <a>{{dateFormat this.date "DD/MM/YYYY"}}</a><br>
       {{/each}}</td>
     <td class="td">{{#each logs}}
     <a href="/details/{{this._id}}">{{this.synthesis}} </a><br>
@@ -65,9 +65,3 @@ Welcome {{user.username}}
 <div class="api">
   current temperature: {{temp}}ºC
 </div>
-<!--
-{{#each logs}}
-    <a href="/details/{{this._id}}">{{this.machine.machine}}  {{dateFormat this.date "DD/MM/YYYY"}}  {{this.synthesis}}</a>
-    <br>
-  {{/each}}
-  -->

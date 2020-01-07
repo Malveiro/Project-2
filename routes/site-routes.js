@@ -58,7 +58,6 @@ router.get("/edit", (req, res, next) => {
 router.post("/edit", (req, res) => {
   let logID = req.query.log_id;
   const { machine, date, synthesis, otherTechnician, description } = req.body;
-  //Find author by name Author.find
   Log.update({ _id: req.query.log_id }, { $set: { machine, date, synthesis, otherTechnician, description } })
     .then(() => {
       res.redirect("/list");
