@@ -25,7 +25,7 @@ hbs.registerHelper('isSelected', ( machine, logMachine ) => {
 });
 
 mongoose
-  .connect('mongodb://localhost/project-2', {useNewUrlParser: true})
+  .connect('mongodb://heroku_2h4c6whh:877ukk6dl6avd74umhb5sgpn3s@ds035016.mlab.com:35016/heroku_2h4c6whh', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
