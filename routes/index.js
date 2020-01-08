@@ -54,6 +54,21 @@ router.get("/details/:logId", (req, res, next) => {
     });
 });
 
+
+
+router.post("/details/:logId/delete", (req, res, next) => {
+  Log.findByIdAndRemove({ _id: req.params.logId })
+    .then(theLog => {
+      res.redirect("/list");
+    })
+    .catch(error => {
+      console.log("Error: ", error);
+    });
+});
+
+
+
+
 router.post("/list", (req, res) => {
   const { machine, date, synthesis, otherTechnician, description } = req.body;
   const newLog = new Log({

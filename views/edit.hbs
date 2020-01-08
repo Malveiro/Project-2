@@ -1,15 +1,15 @@
 <form action="/edit?log_id={{log._id}}" method="POST">
   <label for="">Machine</label>
-   <select name="machine" id="machine">
-    <option>Choose a machine</option>
+   <select name="machine" required id="machine">
+    <option value="">Choose a machine</option>
       {{#each machines}}
         <option value="{{this._id}}" {{{isSelected this.machine ../log.machine.machine}}}>{{this.machine}}</option>
       {{/each}}
   </select>
   <label for="">Date</label>
-  <input type="date" name="date" value="{{dateFormat log.date "YYYY-MM-DD"}}">
+  <input type="date" name="date" required value="{{dateFormat log.date "YYYY-MM-DD"}}">
   <label for="">Synthesis</label>
-  <input type="text" name="synthesis" value="{{log.synthesis}}">
+  <input type="text" name="synthesis" maxlength="30" required value="{{log.synthesis}}">
   <label for="">Other Technician</label>
   <input type="text" name="otherTechnician" value="{{log.otherTechnician}}">
   <label for="">Description</label>
