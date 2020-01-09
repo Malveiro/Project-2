@@ -10,8 +10,6 @@ weather.setAPPID("f56f8d4ec36f3c9e29631c3c465879f8");
 
 router.get("/", (req, res, next) => {
   weather.getTemperature((err, temp => {
-    //weather[0].getIcon((err, ic => {
-   // }))
    let parsedTemp = temp.toFixed(1);
     res.render("home", parsedTemp );
   }));
