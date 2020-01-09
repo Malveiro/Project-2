@@ -4,16 +4,13 @@
   <input type="text" name="username" class="form-control" placeholder="Your username">
   </div>
   <div class="forms">
-  <input type="email" name="email" class="form-control" placeholder="Your email">
-  </div>
-  <div class="forms">
   <input type="password" name="password" class="form-control" placeholder="Password">
   </div>
   <div class="forms">
   <input type="password" name="password2" class="form-control" placeholder="Repeat password">
   </div>
-  {{#if errorMesge }}
-    <div class="error-message">{{ errorMessage }}</div>
+  {{#if errorMessage }}
+    <div class="error-message forms">{{ errorMessage }}</div>
   {{/if}}
   <div class="forms">
     <button type="submit" class="btn btn-primary btn-block">Create an account</button>

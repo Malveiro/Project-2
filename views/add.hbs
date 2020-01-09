@@ -4,16 +4,16 @@
 
 <form class="form" action="/list" method="POST">
   <label for="">Machine</label><br>
- <select name="machine" id="machine">
+ <select name="machine" id="machine" required>
     <option>Choose a machine</option>
       {{#each machines}}
         <option value="{{this._id}}">{{this.machine}}</option>
       {{/each}}
   </select><br><br>
   <label for="">Date</label><br>
-  <input type="date" name="date"><br><br>
+  <input type="date" name="date" required><br>
   <label for="">Synthesis</label><br>
-  <input type="text" name="synthesis"><br><br>
+  <input type="text" name="synthesis" maxlength="30" required><br><br>
   <label for="">Other Technician</label><br>
   <input type="string" name="otherTechnician"><br><br>
   <label for="">Description</label><br>
