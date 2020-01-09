@@ -9,9 +9,12 @@ weather.setUnits("metric");
 weather.setAPPID("f56f8d4ec36f3c9e29631c3c465879f8");
 
 router.get("/", (req, res, next) => {
-  weather.getTemperature((err, temp) => {
-    res.render("home", { temp });
-  });
+  weather.getTemperature((err, temp => {
+    //weather[0].getIcon((err, ic => {
+   // }))
+   let parsedTemp = temp.toFixed(1);
+    res.render("home", parsedTemp );
+  }));
 });
 
 router.get("/list", (req, res) => {
@@ -53,6 +56,21 @@ router.get("/details/:logId", (req, res, next) => {
       console.log("Error: ", error);
     });
 });
+
+
+
+router.post("/details/:logId/delete", (req, res, next) => {
+  Log.findByIdAndRemove({ _id: req.params.logId })
+    .then(theLog => {
+      res.redirect("/list");
+    })
+    .catch(error => {
+      console.log("Error: ", error);
+    });
+});
+
+
+
 
 router.post("/list", (req, res) => {
   const { machine, date, synthesis, otherTechnician, description } = req.body;

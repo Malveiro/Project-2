@@ -4,8 +4,8 @@
 
 <form class="form" action="/list" method="POST">
   <label for="">Machine</label><br>
- <select name="machine" id="machine" required>
-    <option>Choose a machine</option>
+ <select required name="machine" id="machine">
+    <option value="">Choose a machine</option>
       {{#each machines}}
         <option value="{{this._id}}">{{this.machine}}</option>
       {{/each}}

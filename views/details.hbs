@@ -1,14 +1,16 @@
 <h1>Details</h1>
 
-  <p>Machine: {{logs.machine.machine}}</p>
-  <p>Date: {{dateFormat logs.date "DD/MM/YYYY"}}</p>
-  <p>Synthesis: {{logs.synthesis}}</p>
-  <p>Other Technician: {{logs.otherTechnician}}</p>
-  <p>Description: {{logs.description}}</p>
+<p>Machine: {{logs.machine.machine}}</p>
+<p>Date: {{dateFormat logs.date "DD/MM/YYYY"}}</p>
+<p>Synthesis: {{logs.synthesis}}</p>
+<p>Other Technician: {{logs.otherTechnician}}</p>
+<p>Description: {{logs.description}}</p>
 
+<form method="POST" action="/details/{{logs._id}}/delete">
+  <button class="btn btn-danger" type="submit">Delete</button>
+</form>
 
 
 
 <a href="/edit?log_id={{logs._id}}">Edit</a>
 <a href="/list">Back</a>
-
