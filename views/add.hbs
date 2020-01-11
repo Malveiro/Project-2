@@ -4,11 +4,11 @@
 
 <form class="form" action="/list" method="POST">
   <label for="">Machine</label><br>
- <select required name="machine" id="machine">
+  <select required name="machine" id="machine">
     <option value="">Choose a machine</option>
-      {{#each machines}}
-        <option value="{{this._id}}">{{this.machine}}</option>
-      {{/each}}
+    {{#each machines}}
+    <option value="{{this._id}}">{{this.machine}}</option>
+    {{/each}}
   </select><br><br>
   <label for="">Date</label><br>
   <input type="date" name="date" required><br><br>
@@ -18,13 +18,15 @@
   <input type="string" name="otherTechnician"><br><br>
   <label for="">Description</label><br>
   <input type="string" name="description">
-  {{!-- <textarea rows="4" cols="50"></textarea><br><br> --}}
-  <button type="submit">Submit</button>
+  <br>
+  <br>
+  <button class="btn btn-primary" type="submit">Submit</button>
+  <br>
 </form>
-
-
-
-<a href="/machine">Add New Machine</a>
 <br>
-<a href="/list">Cancel</a>
 
+
+<button class="btn btn-primary" type="button" onclick="location.href='/machine'">Add new machine</button>
+<br>
+<br>
+<button class="btn btn-primary" type="button" onclick="location.href='/list'">Cancel</button>

@@ -1,7 +1,13 @@
-<h4>List</h4>
+<h2>List of maintenances</h2>
+
+
 
 {{#if user}}
-Welcome {{user.username}}
+
+
+{{checkingDate message}}
+{{user.username}}
+
 <form action="/logout" method="POST" id="form">
   <button class="pull-right logout" type="submit">Log Out</button>
 </form>
@@ -12,20 +18,23 @@ Welcome {{user.username}}
 <a class="pull-right login" href="/login">Log In</a>
 {{/if}}
 
-<br>
-<br>
 
-<a href="/add">Add New</a>
+
 
 <br>
 <br>
+
+<a class="pull-left login" href="/machine-list">List of machines</a>
+<a class="pull-left login" href="/add">Add new maintenance log</a>
+
+
+<br>
+<br>
 <br>
 
-<h4>Select:</h4>
+<h4>Filter logs:</h4>
 
-<form class="list-forms" action="/list" method="GET">
-  <button type="submit">All</button>
-</form>
+
 
 <form class="list-forms" action="/list" method="GET">
   <label for="">Machine</label>
@@ -35,7 +44,12 @@ Welcome {{user.username}}
     <option value="{{this._id}}" {{{isSelected this._id ../selectedMachineId}}}>{{this.machine}}</option>
     {{/each}}
   </select>
-  <button type="submit">Submit</button>
+  <button type="submit">Filter</button>
+  <br>
+</form>
+
+<form class="list-forms" action="/list" method="GET">
+  <button type="submit">Clear filters</button>
 </form>
 
 <br>
@@ -52,7 +66,7 @@ Welcome {{user.username}}
   {{#each logs}}
   <tr>
     <td class="td">
-      <a href="/machine/{{this.machine._id}}">{{this.machine.machine}}</a>
+      {{this.machine.machine}}
     </td>
     <td class="td">
       {{dateFormat this.date "DD/MM/YYYY"}}
@@ -64,6 +78,13 @@ Welcome {{user.username}}
   {{/each}}
 </table>
 
+<br>
+
+<div class="weather">
 <div class="api">
-  current temperature: {{temp}}ºC
+  <div id="wicon"><img id="wicon" src="http://openweathermap.org/img/wn/{{weatherIcon}}@2x.png" alt="Weather icon"></div>
+</div>
+ <div class="api"> 
+  <div class="temp">{{temperature}}ºC</div>
+</div>
 </div>

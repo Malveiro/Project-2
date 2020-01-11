@@ -2,16 +2,16 @@ const express = require("express");
 const router = express.Router();
 const Machine = require("../models/machine");
 const Log = require("../models/log");
-const weather = require("openweather-apis");
-weather.setLang("pt");
-weather.setCity("Lisbon");
-weather.setUnits("metric");
-weather.setAPPID("f56f8d4ec36f3c9e29631c3c465879f8");
+// const weather = require("openweather-apis");
+// weather.setLang("pt");
+// weather.setCity("Lisbon");
+// weather.setUnits("metric");
+// weather.setAPPID("f56f8d4ec36f3c9e29631c3c465879f8");
+const axios = require("axios");
+	
 
 router.get("/", (req, res, next) => {
-  weather.getTemperature((err, temp) => {
-    res.render("home", { temp });
-  });
+    res.render("home");
 });
 
 router.get("/list", (req, res) => {
@@ -26,13 +26,20 @@ router.get("/list", (req, res) => {
       .populate("machine")
   ])
     .then(([machines, logs]) => {
-      weather.getTemperature((err, temp) => {
-        res.render("list", { logs, machines, selectedMachineId: req.query.machine, user: req.session.user, temp });
-      });
+      let apiKey = process.env.WEATHER_API_KEY;
+      let city = 'Lisbon';
+      let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+      
+      axios.get(url).then((response) => {
+        let data = response.data;
+        let weatherIcon =  data.weather[0].icon;
+        let temperature = parseFloat(data.main.temp).toFixed(1);
+        res.render("list", { logs, machines, selectedMachineId: req.query.machine, user: req.session.user, message: 'Good morning' , weatherIcon, temperature });
     })
     .catch(error => {
       console.log("Error while retrieving the logs", error);
     });
+  });
 });
 
 
@@ -81,15 +88,7 @@ router.get("/details/:logId", (req, res, next) => {
 
 
 
-router.post("/details/:logId/delete", (req, res, next) => {
-  Log.findByIdAndRemove({ _id: req.params.logId })
-    .then(theLog => {
-      res.redirect("/list");
-    })
-    .catch(error => {
-      console.log("Error: ", error);
-    });
-});
+
 
 
 

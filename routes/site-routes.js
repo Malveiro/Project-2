@@ -104,4 +104,14 @@ router.post("/machine/:machineId/delete", (req, res) => {
     });
 });
 
+router.post("/details/:logId/delete", (req, res, next) => {
+  Log.findByIdAndRemove({ _id: req.params.logId })
+    .then(theLog => {
+      res.redirect("/list");
+    })
+    .catch(error => {
+      console.log("Error: ", error);
+    });
+});
+
 module.exports = router;
