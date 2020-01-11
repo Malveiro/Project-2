@@ -6,11 +6,11 @@
 
 <form action="/add" method="POST">
   <label for="machine">Machine Name</label><br>
-  <input type="text" name="machine"><br><br>
+  <input type="text" required name="machine"><br><br>
   <label for="model">Model</label><br>
-  <input type="text" name="model"><br><br>
+  <input type="text" required name="model"><br><br>
   <label for="info">Description</label><br>
-  <input type="string" name="info">
+  <input type="string" required name="info">
   {{!-- <textarea rows="3" cols="50"></textarea><br><br> --}}
   <button type="submit">Submit</button>
 </form>

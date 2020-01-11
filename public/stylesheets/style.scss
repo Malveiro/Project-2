@@ -12,6 +12,10 @@ a {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+  margin-top: 0px;
+}
+
+.weather {
   margin-top: 50px;
 }
 
@@ -133,4 +137,9 @@ a {
 .list-forms {
   display: inline-block;
   padding-right: 10px;
+}
+
+#wicon {
+  height: 60px;
+  margin-right: 17px;
 }

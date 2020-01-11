@@ -10,6 +10,9 @@ a {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+  margin-top: 0px; }
+
+.weather {
   margin-top: 50px; }
 
 .form-group {
@@ -114,4 +117,11 @@ a {
   display: inline-block;
   padding-right: 10px; }
 
-/*# sourceMappingURL=style.css.map */
+#wicon {
+  height: 60px;
+}
+
+.temp {
+  margin-right: 6px;
+}
+

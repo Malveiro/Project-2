@@ -62,6 +62,12 @@ Welcome {{user.username}}
       </tr>
 </table>
 
+<div class="weather">
 <div class="api">
-  current temperature: {{temp}}ºC
+  <div id="wicon"><img id="wicon" src="http://openweathermap.org/img/wn/{{weatherIcon}}@2x.png" alt="Weather icon"></div>
 </div>
+ <div class="api"> 
+  <div class="temp">{{temperature}}ºC</div>
+</div>
+</div>
+ 
