@@ -5,12 +5,13 @@
 <p>Synthesis: {{logs.synthesis}}</p>
 <p>Other Technician: {{logs.otherTechnician}}</p>
 <p>Description: {{logs.description}}</p>
-
+<br>
 <form method="POST" action="/details/{{logs._id}}/delete">
-  <button class="btn btn-danger" type="submit">Delete</button>
+  <button class="btn btn-primary" type="submit">Delete</button>
 </form>
+<br>
 
-
-
-<a href="/edit?log_id={{logs._id}}">Edit</a>
-<a href="/list">Back</a>
+<button class="btn btn-primary" type="button" onclick="location.href='/edit?log_id={{logs._id}}'">Edit</button>
+<br>
+<br>
+<button class="btn btn-primary" type="button" onclick="location.href='/list'">Back to the list of maintenances</button>

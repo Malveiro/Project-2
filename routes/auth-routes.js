@@ -41,7 +41,7 @@ router.post("/signup", (req, res, next) => {
         password: hashPass
       })
         .then(() => {
-          res.redirect("/list");
+          res.redirect("/login");
         })
         .catch(error => {
           console.log(error);

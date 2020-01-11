@@ -8,7 +8,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.use((req, res, next) => {
-  console.log(req.session)
+  console.log(req.session);
   if (req.session.user) {
     // <== if there's user in the session (user is logged in)
     next(); // ==> go to the next route ---
@@ -64,6 +64,53 @@ router.post("/edit", (req, res) => {
     })
     .catch(error => {
       console.log(error);
+    });
+});
+
+router.get("/machine/:machineId/edit", (req, res) => {
+  Machine.findById({ _id: req.params.machineId })
+    .then(machine => {
+      res.render("machine-edit", { machine });
+    })
+    .catch(error => {
+      res.render("error", {
+        errorMessage: `Error while retrieving the details of the machine: ${error.message}`
+      });
+    });
+});
+
+router.post("/machine/:machineId/edit", (req, res) => {
+  Machine.update({ _id: req.params.machineId }, { $set: req.body })
+    .then(() => {
+      res.redirect(`/machine/${req.params.machineId}`);
+    })
+    .catch(error => {
+      res.render("error", {
+        errorMessage: `Error while editing the details of the machine: ${error.message}`
+      });
+    });
+});
+
+
+router.post("/machine/:machineId/delete", (req, res) => {
+  Machine.findByIdAndRemove({ _id: req.params.machineId })
+    .then(machine => {
+      res.redirect("/machine-list");
+    })
+    .catch(error => {
+      res.render("error", {
+        errorMessage: `Error while deleting the machine: ${error.message}`
+      });
+    });
+});
+
+router.post("/details/:logId/delete", (req, res, next) => {
+  Log.findByIdAndRemove({ _id: req.params.logId })
+    .then(theLog => {
+      res.redirect("/list");
+    })
+    .catch(error => {
+      console.log("Error: ", error);
     });
 });
 

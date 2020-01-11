@@ -1,0 +1,27 @@
+<h1>List of machines</h1>
+
+<table class="grid">
+  <tr>
+    <th class="th">Name</th>
+    <th class="th">Model</th>
+    <th class="th">Info</th>
+  </tr>
+
+  {{#each machines}}
+  <tr>
+    <td class="td">
+      <a href="/machine/{{this._id}}">{{this.machine}}</a>
+    </td>
+    <td class="td">
+      {{this.model}}
+    </td>
+    <td class="td">
+      {{this.info}}
+    </td>
+  </tr>
+  {{/each}}
+</table>
+
+<br>
+<br>
+<button class="btn btn-primary" type="button" onclick="location.href='/list'">Back to list of maintenances</button>

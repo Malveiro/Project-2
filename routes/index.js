@@ -2,17 +2,25 @@ const express = require("express");
 const router = express.Router();
 const Machine = require("../models/machine");
 const Log = require("../models/log");
+// const weather = require("openweather-apis");
+// weather.setLang("pt");
+// weather.setCity("Lisbon");
+// weather.setUnits("metric");
+// weather.setAPPID("f56f8d4ec36f3c9e29631c3c465879f8");
 const axios = require("axios");
+	
 
 router.get("/", (req, res, next) => {
-  weather.getTemperature((err, temp => {
-    res.render("home", { temp } );
-  }));
+    res.render("home");
 });
 
 router.get("/list", (req, res) => {
   Promise.all([
-    Machine.find(),
+    Log.distinct("machine")
+    .then(machineIds => 
+      Machine.find({"_id": { $in: machineIds }})
+      .sort("machine")),
+
     Log.find(req.query)
       .sort("-date")
       .populate("machine")
@@ -26,7 +34,7 @@ router.get("/list", (req, res) => {
         let data = response.data;
         let weatherIcon =  data.weather[0].icon;
         let temperature = parseFloat(data.main.temp).toFixed(1);
-        res.render("list", { logs, machines, user: req.session.user, weatherIcon, temperature  });
+        res.render("list", { logs, machines, selectedMachineId: req.query.machine, user: req.session.user, message: 'Good morning' , weatherIcon, temperature });
     })
     .catch(error => {
       console.log("Error while retrieving the logs", error);
@@ -34,16 +42,37 @@ router.get("/list", (req, res) => {
   });
 });
 
-router.get("/details", (req, res) => {
-  Log.find()
-  .populate("machine")
-    .then(allLogsFromDB => {
-      let userAuthenticated = req.session.currentUser ? true : false;
-      res.render("details", { logs: allLogsFromDB, userAuthenticated });
+
+router.get("/machine-list", (req, res) => {
+  
+    Machine.find()
+      .sort("machine")
+  
+    .then( machines => {
+        res.render("machine-list", { machines });
     })
     .catch(error => {
+      res.render("error", {
+        errorMessage: `Error while retrieving the list of machines: ${error.message}`
+      });
     });
 });
+
+router.get("/machine/:machineId", (req, res) => {
+  Machine.findById({ _id: req.params.machineId })
+    .then(machine => {
+      res.render("machine-details", { machine });
+    })
+    .catch(error => {
+      res.render("error", {
+        errorMessage: `Error while retrieving the details of the machine: ${error.message}`
+      });
+    });
+});
+
+
+
+
 
 router.get("/details/:logId", (req, res, next) => {
   Log.findById({ _id: req.params.logId })
@@ -59,15 +88,7 @@ router.get("/details/:logId", (req, res, next) => {
 
 
 
-router.post("/details/:logId/delete", (req, res, next) => {
-  Log.findByIdAndRemove({ _id: req.params.logId })
-    .then(theLog => {
-      res.redirect("/list");
-    })
-    .catch(error => {
-      console.log("Error: ", error);
-    });
-});
+
 
 
 

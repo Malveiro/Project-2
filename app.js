@@ -16,7 +16,7 @@ hbs.registerHelper('dateFormat', require('handlebars-dateformat'));
 hbs.registerHelper('isSelected', ( machine, logMachine ) => {
   console.log("machine", machine);
   console.log("logMachine", logMachine);
-  if (machine === logMachine) {
+  if (machine == logMachine) {
     console.log("found it");
     return 'selected';
   } else {
@@ -63,6 +63,22 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
       
+hbs.registerHelper("checkingDate", value => {
+  
+  var thehours = new Date().getHours();
+	var themessage = value
+	var afternoon = 'Good afternoon';
+	var evening = 'Good evening';
+ if (thehours >= 11 && thehours < 17) {
+    themessage = afternoon;
+    return themessage
+
+	} else if (thehours >= 17 && thehours < 24) {
+    themessage = evening;
+    return themessage
+  } 
+  return themessage
+});
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
