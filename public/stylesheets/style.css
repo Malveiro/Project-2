@@ -1,29 +1,24 @@
 body {
   padding: 50px;
   width: 100%;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00b7ff;
-}
+  color: #00B7FF; }
 
 .api {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  margin-top: 50px;
-}
+  margin-top: 50px; }
 
 .form-group {
   width: 250px;
-  margin-left: 505px;
-}
+  margin-left: 505px; }
 
 .error-message {
   margin-left: 535px;
-  margin-bottom: 10px;
-}
+  margin-bottom: 10px; }
 
 .log-out {
   margin-top: -20px;
@@ -36,58 +31,50 @@ a {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  border-radius: 8px;
-}
+  border-radius: 8px; }
 
 .start {
-  margin-top: 25%;
-}
+  margin-top: 25%; }
 
 .login {
   margin-right: 10px;
-  background-color: #00b7ff;
+  background-color: #00B7FF;
   font-size: 16px;
   color: darkblue;
   text-decoration: none;
   padding: 0.7em 1.5em;
-  border-radius: 8px;
-}
+  border-radius: 8px; }
 
 .signup {
   margin-right: 10px;
-  background-color: #00b7ff;
+  background-color: #00B7FF;
   font-size: 16px;
   color: darkblue;
   text-decoration: none;
   padding: 0.7em 1.5em;
-  border-radius: 8px;
-}
+  border-radius: 8px; }
 
 .login:hover {
   background-color: lightskyblue;
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 .signup:hover {
   background-color: lightskyblue;
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 .logout {
   margin-right: 10px;
-  background-color: #00b7ff;
+  background-color: #00B7FF;
   font-size: 16px;
   color: darkblue;
   text-decoration: none;
   padding: 0.7em 1.5em;
   border-radius: 8px;
-  border: none;
-}
+  border: none; }
 
 .logout:hover {
   background-color: lightskyblue;
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 .forms {
   height: 100%;
@@ -98,50 +85,33 @@ a {
   align-content: center;
   padding: 8px;
   margin-left: 32%;
-  margin-right: 32%;
-}
+  margin-right: 32%; }
 
 .forms input {
-  width: 250px;
-}
+  width: 250px; }
 
 .forms button {
-  width: 250px;
-}
+  width: 250px; }
 
 .th {
-  padding-right: 40px;
-}
+  padding-right: 40px; }
 
 .td {
-  padding-right: 40px;
-}
+  padding-right: 40px; }
 
 .grid {
   font-size: 17px;
   padding-right: 10px;
-  width: 450px;
-}
+  width: 450px; }
 
 .list-forms {
-  display: inline-block;
-}
+  display: inline-block; }
 
 .th {
-  border-bottom: 1px solid #ddd;
-}
+  border-bottom: 1px solid #ddd; }
 
 .list-forms {
   display: inline-block;
-  padding-right: 10px;
-}
-
-#wicon {
-  height: 60px;
-}
-.temp {
-  margin-right: 6px;
-}
-
+  padding-right: 10px; }
 
 /*# sourceMappingURL=style.css.map */
