@@ -16,7 +16,7 @@ hbs.registerHelper('dateFormat', require('handlebars-dateformat'));
 hbs.registerHelper('isSelected', ( machine, logMachine ) => {
   console.log("machine", machine);
   console.log("logMachine", logMachine);
-  if (machine === logMachine) {
+  if (machine == logMachine) {
     console.log("found it");
     return 'selected';
   } else {
