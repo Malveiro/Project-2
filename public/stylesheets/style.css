@@ -1,7 +1,25 @@
+html {
+  height: 100%;
+}
+
 body {
-  padding: 50px;
   width: 100%;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  height: 100%;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  
+  body::after {
+    content: "";
+    background: url("/images/Industrial-Maintenance.jpg");
+    opacity: 0.3;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    filter: blur(2px); 
+  }
+
 
 a {
   color: #00B7FF; }
@@ -112,6 +130,18 @@ a {
 
 .list-forms {
   display: inline-block;
-  padding-right: 10px; }
+  padding-right: 10px; 
+}
+
+.main-color{
+  color: #1478BB;
+  font-weight: 600;
+  font-variant: small-caps;
+}
+
+.card-vertical-space{
+  padding-top: 150px;
+}
+
 
 /*# sourceMappingURL=style.css.map */

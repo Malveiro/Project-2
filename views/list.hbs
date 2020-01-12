@@ -13,9 +13,9 @@
 </form>
 
 {{else}}
-<a class="pull-right signup" href="/signup">Sign up</a>
+<a class="pull-right signup" href="/signup">Signup</a>
 
-<a class="pull-right login" href="/login">Log In</a>
+<a class="pull-right login" href="/login">Login</a>
 {{/if}}
 
 
@@ -62,6 +62,7 @@
     <th class="th">Machine</th>
     <th class="th">Date</th>
     <th class="th">Synthesis</th>
+    <th class="th">Technitian</th>
   </tr>
   {{#each logs}}
   <tr>
@@ -73,6 +74,9 @@
     </td>
     <td class="td">
       <a href="/details/{{this._id}}">{{this.synthesis}}</a>
+    </td>
+    <td class="td">
+      {{this.user.username}}
     </td>
   </tr>
   {{/each}}

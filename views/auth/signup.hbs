@@ -1,19 +1,28 @@
-<form action="/signup" method="POST" id="form">
-  <h2 class="text-center">Sign Up</h2>
-  <div class="forms">
-  <input type="text" name="username" class="form-control" placeholder="Your username">
+<div class="container card-vertical-space h-100">
+  <div class="card mx-auto" style="width: 24rem;">
+    <img src="/images/large_boltwork.png" class="card-img-top" alt="boltwork_logo">
+    <div class="card-body">
+      <h3 class="card-title main-color text-center">Signup</h3>
+      <form action="/signup" method="POST" id="form">
+        <div class="forms">
+          <input type="text" name="username" class="form-control" placeholder="Username">
+        </div>
+        <div class="forms">
+          <input type="password" name="password" class="form-control" placeholder="Password">
+        </div>
+        <div class="forms">
+          <input type="password" name="password2" class="form-control" placeholder="Confirm password">
+        </div>
+        {{#if errorMessage }}
+        <div class="error-message forms">{{ errorMessage }}</div>
+        {{/if}}
+        <div class="forms">
+          <button type="submit" class="btn btn-primary btn-block">Create an account</button>
+        </div>
+        <p class="text-center">
+          Already have an account? <a href="/login">Login</a>
+        </p>
+      </form>
+    </div>
   </div>
-  <div class="forms">
-  <input type="password" name="password" class="form-control" placeholder="Password">
-  </div>
-  <div class="forms">
-  <input type="password" name="password2" class="form-control" placeholder="Repeat password">
-  </div>
-  {{#if errorMessage }}
-    <div class="error-message forms">{{ errorMessage }}</div>
-  {{/if}}
-  <div class="forms">
-    <button type="submit" class="btn btn-primary btn-block">Create an account</button>
-  </div>  
-</form>
-
+</div>

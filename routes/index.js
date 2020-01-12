@@ -8,6 +8,7 @@ const Log = require("../models/log");
 // weather.setUnits("metric");
 // weather.setAPPID("f56f8d4ec36f3c9e29631c3c465879f8");
 const axios = require("axios");
+
 	
 
 router.get("/", (req, res, next) => {
