@@ -117,15 +117,29 @@ a {
   display: inline-block;
   padding-right: 10px; }
 
-<<<<<<< HEAD
 #wicon {
   height: 60px;
+  margin-right: 17px; }
+
+.list-hbs {
+  background-image: url('/images/gettyimages-821927012-1024x1024.jpg');
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
 }
 
-.temp {
-  margin-right: 6px;
+#bg-image {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-image: url(/images/gettyimages-821927012-1024x1024.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.5;
 }
 
-=======
+.all {
+  opacity: 1;
+}
 /*# sourceMappingURL=style.css.map */
->>>>>>> ebda294ee02ff62d11dae81b1ce044708814d500
