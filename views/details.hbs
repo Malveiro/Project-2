@@ -1,8 +1,11 @@
+{{> header }}
+
 <h1>Details</h1>
 
 <p>Machine: {{logs.machine.machine}}</p>
 <p>Date: {{dateFormat logs.date "DD/MM/YYYY"}}</p>
 <p>Synthesis: {{logs.synthesis}}</p>
+<p>Technician: {{logs.technician.username}}</p>
 <p>Other Technician: {{logs.otherTechnician}}</p>
 <p>Description: {{logs.description}}</p>
 <br>

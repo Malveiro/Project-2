@@ -1,11 +1,28 @@
+html {
+  height: 100%;
+}
+
 body {
-  padding: 50px;
   width: 100%;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100%;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+body::after {
+  content: "";
+  background: url("/images/Industrial-Maintenance.jpg");
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  filter: blur(2px);
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
 
 .api {
@@ -24,7 +41,7 @@ a {
   margin-left: 505px;
 }
 
-.error-message{
+.error-message {
   margin-left: 535px;
   margin-bottom: 10px;
 }
@@ -32,7 +49,7 @@ a {
 .log-out {
   margin-top: -20px;
   margin-right: 10px;
-  background-color: #6e2e6c; 
+  background-color: #6e2e6c;
   border: none;
   color: white;
   padding: 5px 22px;
@@ -43,13 +60,13 @@ a {
   border-radius: 8px;
 }
 
-.start{
+.start {
   margin-top: 25%;
 }
 
-.login{
+.login {
   margin-right: 10px;
-  background-color: #00B7FF;
+  background-color: #00b7ff;
   font-size: 16px;
   color: darkblue;
   text-decoration: none;
@@ -57,9 +74,9 @@ a {
   border-radius: 8px;
 }
 
-.signup{
+.signup {
   margin-right: 10px;
-  background-color: #00B7FF;
+  background-color: #00b7ff;
   font-size: 16px;
   color: darkblue;
   text-decoration: none;
@@ -77,9 +94,9 @@ a {
   text-decoration: none;
 }
 
-.logout{
+.logout {
   margin-right: 10px;
-  background-color: #00B7FF;
+  background-color: #00b7ff;
   font-size: 16px;
   color: darkblue;
   text-decoration: none;
@@ -93,7 +110,7 @@ a {
   text-decoration: none;
 }
 
-.forms{
+.forms {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -104,15 +121,16 @@ a {
   margin-left: 32%;
   margin-right: 32%;
 }
-.forms input{
+
+.forms input {
   width: 250px;
 }
 
-.forms button{
+.forms button {
   width: 250px;
 }
 
-.th{
+.th {
   padding-right: 40px;
 }
 
@@ -142,4 +160,17 @@ a {
 #wicon {
   height: 60px;
   margin-right: 17px;
+}
+.main-color {
+  color: #1478bb;
+  font-weight: 600;
+  font-variant: small-caps;
+}
+
+.card-vertical-space {
+  padding-top: 150px;
+}
+
+.header-image{
+  height: 100px;
 }

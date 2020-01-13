@@ -1,3 +1,5 @@
+{{> header }}
+
 <form action="/edit?log_id={{log._id}}" method="POST">
   <label for="">Machine</label>
    <select name="machine" required id="machine">
@@ -14,6 +16,8 @@
   <input type="text" name="otherTechnician" value="{{log.otherTechnician}}">
   <label for="">Description</label>
   <input type="text" name="description" value="{{log.description}}">
+  <label for="">Technician</label>
+  <input type="text" name="technician" value="{{log.technician.username}}" readonly>
   <br>
   <br>
   <button type="submit">Edit</button>

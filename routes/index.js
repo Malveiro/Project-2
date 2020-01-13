@@ -2,13 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Machine = require("../models/machine");
 const Log = require("../models/log");
-// const weather = require("openweather-apis");
-// weather.setLang("pt");
-// weather.setCity("Lisbon");
-// weather.setUnits("metric");
-// weather.setAPPID("f56f8d4ec36f3c9e29631c3c465879f8");
 const axios = require("axios");
-	
 
 router.get("/", (req, res, next) => {
     res.render("home");
@@ -24,6 +18,7 @@ router.get("/list", (req, res) => {
     Log.find(req.query)
       .sort("-date")
       .populate("machine")
+      .populate("technician")
   ])
     .then(([machines, logs]) => {
       let apiKey = process.env.WEATHER_API_KEY;
@@ -70,13 +65,11 @@ router.get("/machine/:machineId", (req, res) => {
     });
 });
 
-
-
-
-
 router.get("/details/:logId", (req, res, next) => {
   Log.findById({ _id: req.params.logId })
     .populate("machine")
+    .populate("technician")
+    
     .then(theLog => {
       console.log("The Log", theLog);
       res.render("details", { logs: theLog });
@@ -86,19 +79,13 @@ router.get("/details/:logId", (req, res, next) => {
     });
 });
 
-
-
-
-
-
-
-
 router.post("/list", (req, res) => {
   const { machine, date, synthesis, otherTechnician, description } = req.body;
   const newLog = new Log({
     machine,
     date,
     synthesis,
+    technician: req.session.user._id,
     otherTechnician,
     description
   });

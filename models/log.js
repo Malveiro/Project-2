@@ -6,6 +6,11 @@ const logSchema = new Schema({
     ref: 'Machine',
   required: true
  },
+ technician: { 
+  type : Schema.Types.ObjectId, 
+  ref: 'User',
+  required: true
+},
   date: Date,
   synthesis: String,
   otherTechnician: String,

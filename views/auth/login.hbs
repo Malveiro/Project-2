@@ -1,20 +1,25 @@
-<form action="/login" method="POST" id="form">
-  <h2 class="text-center">Log in</h2>
-
-  <div class="forms">
-  <input type="text" name="username" class="form-control" placeholder="Username">
+<div class="container card-vertical-space h-100">
+  <div class="card mx-auto" style="width: 24rem;">
+    <img src="/images/large_boltwork.png" class="card-img-top" alt="boltwork_logo">
+    <div class="card-body">
+      <h3 class="card-title main-color text-center">Login</h3>
+      <form action="/login" method="POST" id="form">
+        <div class="forms">
+          <input type="text" name="username" class="form-control" placeholder="Username">
+        </div>
+        <div class="forms">
+          <input type="password" name="password" class="form-control" placeholder="password">
+        </div>
+        {{#if errorMessage }}
+        <div class="error-message forms">{{ errorMessage }}</div>
+        {{/if}}
+        <div class="forms">
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </div>
+        <p class="text-center">
+          Don't have an account? <a href="/signup">Signup</a>
+        </p>
+      </form>
+    </div>
   </div>
-  <div class="forms">
-  <input type="password" name="password" class="form-control" placeholder="password">
-  </div>
-  {{#if errorMessage }}
-    <div class="error-message forms">{{ errorMessage }}</div>
-  {{/if}}
-  <div class="forms">
-    <button type="submit" class="btn btn-primary btn-block">Log in</button>
-  </div> 
-  <p class="text-center">
-    Don't have an account? <a href="/signup">Sign up</a>
-  </p>
-</form>
-
+</div>
