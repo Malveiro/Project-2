@@ -1,5 +1,6 @@
 html {
   height: 100%;
+  overflow-y: hidden;
 }
 
 body {
@@ -132,6 +133,7 @@ a {
 
 .td {
   padding-right: 40px;
+  white-space: nowrap;
 }
 
 .grid {
@@ -165,4 +167,11 @@ a {
 
 .header-image{
   height: 100px;
+}
+
+.main {
+  height: calc(100% - 100px);
+  overflow-y: auto;
+  width: 100%;
+  padding: 24px;
 }

@@ -27,27 +27,38 @@ router.get("/add", (req, res, next) => {
   Machine.find()
     .then(machines => {
       res.render("add", {
-        machines
+        machines,
+        user: req.session.user,
+        message: "Good morning"
       });
     })
     .catch(err => {
       console.log(err);
       res.render("error", {
-        errorMessage: err.message
+        errorMessage: err.message,
+        user: req.session.user,
+        message: "Good morning"
       });
     });
 });
 
 router.get("/edit", (req, res, next) => {
   let logID = req.query.log_id;
-  
+
   console.log(logID);
-  Promise.all([Log.findById(logID).populate("machine").populate("technician"), Machine.find()])
+  Promise.all([
+    Log.findById(logID)
+      .populate("machine")
+      .populate("technician"),
+    Machine.find()
+  ])
     .then(([log, machines]) => {
       console.log(log);
       res.render("edit", {
         log,
-        machines
+        machines,
+        user: req.session.user,
+        message: "Good morning"
       });
     })
     .catch(error => {
@@ -70,11 +81,17 @@ router.post("/edit", (req, res) => {
 router.get("/machine/:machineId/edit", (req, res) => {
   Machine.findById({ _id: req.params.machineId })
     .then(machine => {
-      res.render("machine-edit", { machine });
+      res.render("machine-edit", {
+        machine,
+        user: req.session.user,
+        message: "Good morning"
+      });
     })
     .catch(error => {
       res.render("error", {
-        errorMessage: `Error while retrieving the details of the machine: ${error.message}`
+        errorMessage: `Error while retrieving the details of the machine: ${error.message}`,
+        user: req.session.user,
+        message: "Good morning"
       });
     });
 });
@@ -86,11 +103,12 @@ router.post("/machine/:machineId/edit", (req, res) => {
     })
     .catch(error => {
       res.render("error", {
-        errorMessage: `Error while editing the details of the machine: ${error.message}`
+        errorMessage: `Error while editing the details of the machine: ${error.message}`,
+        user: req.session.user,
+        message: "Good morning"
       });
     });
 });
-
 
 router.post("/machine/:machineId/delete", (req, res) => {
   Machine.findByIdAndRemove({ _id: req.params.machineId })
@@ -99,7 +117,9 @@ router.post("/machine/:machineId/delete", (req, res) => {
     })
     .catch(error => {
       res.render("error", {
-        errorMessage: `Error while deleting the machine: ${error.message}`
+        errorMessage: `Error while deleting the machine: ${error.message}`,
+        user: req.session.user,
+        message: "Good morning"
       });
     });
 });
