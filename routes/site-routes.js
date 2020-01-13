@@ -40,9 +40,9 @@ router.get("/add", (req, res, next) => {
 
 router.get("/edit", (req, res, next) => {
   let logID = req.query.log_id;
-  //Fetch the book using Mongoose using findById
+  
   console.log(logID);
-  Promise.all([Log.findById(logID).populate("machine"), Machine.find()])
+  Promise.all([Log.findById(logID).populate("machine").populate("technician"), Machine.find()])
     .then(([log, machines]) => {
       console.log(log);
       res.render("edit", {

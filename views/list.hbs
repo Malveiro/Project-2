@@ -1,28 +1,6 @@
+{{> header }}
+
 <h2>List of maintenances</h2>
-
-
-
-{{#if user}}
-
-
-{{checkingDate message}}
-{{user.username}}
-
-<form action="/logout" method="POST" id="form">
-  <button class="pull-right logout" type="submit">Log Out</button>
-</form>
-
-{{else}}
-<a class="pull-right signup" href="/signup">Signup</a>
-
-<a class="pull-right login" href="/login">Login</a>
-{{/if}}
-
-
-
-
-<br>
-<br>
 
 <a class="pull-left login" href="/machine-list">List of machines</a>
 <a class="pull-left login" href="/add">Add new maintenance log</a>
@@ -62,7 +40,7 @@
     <th class="th">Machine</th>
     <th class="th">Date</th>
     <th class="th">Synthesis</th>
-    <th class="th">Technitian</th>
+    <th class="th">Technician</th>
   </tr>
   {{#each logs}}
   <tr>
@@ -76,7 +54,7 @@
       <a href="/details/{{this._id}}">{{this.synthesis}}</a>
     </td>
     <td class="td">
-      {{this.user.username}}
+      {{this.technician.username}}
     </td>
   </tr>
   {{/each}}
@@ -85,10 +63,11 @@
 <br>
 
 <div class="weather">
-<div class="api">
-  <div id="wicon"><img id="wicon" src="http://openweathermap.org/img/wn/{{weatherIcon}}@2x.png" alt="Weather icon"></div>
-</div>
- <div class="api"> 
-  <div class="temp">{{temperature}}ºC</div>
-</div>
+  <div class="api">
+    <div id="wicon"><img id="wicon" src="http://openweathermap.org/img/wn/{{weatherIcon}}@2x.png" alt="Weather icon">
+    </div>
+  </div>
+  <div class="api">
+    <div class="temp">{{temperature}}ºC</div>
+  </div>
 </div>
