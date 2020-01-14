@@ -136,6 +136,7 @@ a {
 
 .td {
   padding-right: 40px;
+  white-space: nowrap;
 }
 
 .grid {
@@ -173,4 +174,16 @@ a {
 
 .header-image{
   height: 100px;
+}
+
+.weather {
+  margin-top: -100px;
+}
+
+.temp {
+  margin-right: 30px;
+}
+
+.entire-page {
+  margin-left: 20px;
 }
