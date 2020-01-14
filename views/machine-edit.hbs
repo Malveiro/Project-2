@@ -1,16 +1,22 @@
 {{> header }}
 
-<form action="/machine/{{machine._id}}/edit" method="POST">
-  <label for="">Name</label>
-  <input type="text" name="machine" maxlength="10" required value="{{machine.machine}}">
-<br>
-  <label for="">Model</label>
-  <input type="text" name="model" value="{{machine.model}}">
-<br>
-  <label for="">Info</label>
-  <input type="text" name="info" value="{{machine.info}}">
-<br>
+<div style="display: flex; flex-direction:row; height: 100%">
+  {{> sidenav }}
 
-  <button type="submit">Save</button>
-  <button type="button" onclick="location.href='/machine/{{machine._id}}'">Cancel</button>
-</form>
+  <div class="main">
+    <form action="/machine/{{machine._id}}/edit" method="POST">
+      <label for="">Name</label>
+      <input type="text" name="machine" maxlength="10" required value="{{machine.machine}}">
+      <br>
+      <label for="">Model</label>
+      <input type="text" name="model" value="{{machine.model}}">
+      <br>
+      <label for="">Info</label>
+      <input type="text" name="info" value="{{machine.info}}">
+      <br>
+
+      <button type="submit">Save</button>
+      <button type="button" onclick="location.href='/machine/{{machine._id}}'">Cancel</button>
+    </form>
+  </div>
+</div>

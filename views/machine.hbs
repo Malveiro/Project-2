@@ -1,24 +1,31 @@
 {{> header }}
 
-<form action="/add" method="POST">
-  <label for="machine">Machine Name</label><br>
-  <input type="text" required name="machine"><br><br>
-  <label for="model">Model</label><br>
-  <input type="text" required name="model"><br><br>
-  <label for="info">Description</label><br>
-  <input type="string" required name="info">
-  {{!-- <textarea rows="3" cols="50"></textarea><br><br> --}}
-  <button type="submit">Submit</button>
-</form>
+<div style="display: flex; flex-direction:row; height: 100%">
+  {{> sidenav }}
 
-{{#if errorMessage}}
+  <div class="main">
+
+    <form action="/add" method="POST">
+      <label for="machine">Machine Name</label><br>
+      <input type="text" required name="machine"><br><br>
+      <label for="model">Model</label><br>
+      <input type="text" required name="model"><br><br>
+      <label for="info">Description</label><br>
+      <input type="string" required name="info">
+      {{!-- <textarea rows="3" cols="50"></textarea><br><br> --}}
+      <button type="submit">Submit</button>
+    </form>
+
+    {{#if errorMessage}}
     <div class="error-message">{{ errorMessage }}</div>
-{{/if}}
+    {{/if}}
 
-<a href="/list">Cancel</a>
+    <a href="/list">Cancel</a>
 
 
-{{#each machines}}
-<a href="">{{this.machine}} </a>
-<br>
-{{/each}}
+    {{#each machines}}
+    <a href="">{{this.machine}} </a>
+    <br>
+    {{/each}}
+  </div>
+</div>

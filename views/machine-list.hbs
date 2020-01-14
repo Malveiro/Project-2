@@ -1,43 +1,39 @@
 {{> header }}
-<div class="main">
 
-  <a class="btn btn-primary" href="/list">Back to list of maintenances</a>
-  <a class="btn btn-primary" href="/machine">Add new machine</a>
+<div style="display: flex; flex-direction:row; height: 100%">
+  {{> sidenav }}
 
-  <br>
-  <br>
-  <br>
-  <br>
+  <div class="main">
+    <div class="card " style="width: 40rem;">
+      <div class="card-body">
+        <h3 class="card-title main-color text-center">List of machines</h3>
+        <br>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Model</th>
+              <th scope="col">Info</th>
+            </tr>
+          </thead>
+          <tbody>
 
-  <div class="card " style="width: 40rem;">
-    <div class="card-body">
-      <h3 class="card-title main-color text-center">List of machines</h3>
-      <br>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Model</th>
-            <th scope="col">Info</th>
-          </tr>
-        </thead>
-        <tbody>
-
-          {{#each machines}}
-          <tr>
-            <td class="td">
-              <a href="/machine/{{this._id}}">{{this.machine}}</a>
-            </td>
-            <td class="td">
-              {{this.model}}
-            </td>
-            <td class="td">
-              {{this.info}}
-            </td>
-          </tr>
-          {{/each}}
-        </tbody>
-      </table>
+            {{#each machines}}
+            <tr>
+              <td class="td">
+                <a href="/machine/{{this._id}}">{{this.machine}}</a>
+              </td>
+              <td class="td">
+                {{this.model}}
+              </td>
+              <td class="td">
+                {{this.info}}
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

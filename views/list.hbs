@@ -1,71 +1,67 @@
 {{> header }}
-<div class="main">
-  <a class="btn btn-primary" href="/machine-list">List of machines</a>
-  <a class="btn btn-primary" href="/add">Add new maintenance log</a>
 
-  <br>
-  <br>
-  <br>
-  <br>
+<div style="display: flex; flex-direction:row; height: 100%">
+  {{> sidenav }}
 
-
-  <div class="card " style="width: 40rem;">
-    <div class="card-body">
-      <h3 class="card-title main-color text-center">List of maintenances</h3>
-      <br>
-      <form class="list-forms" action="/list" method="GET">
-        <label for=""><b>Machine</b></label>
-        <select name="machine" id="machine">
-          <option>Choose a machine</option>
-          {{#each machines}}
-          <option value="{{this._id}}" {{{isSelected this._id ../selectedMachineId}}}>{{this.machine}}</option>
-          {{/each}}
-        </select>
-        <button type="submit">Filter</button>
-      </form>
-      <form class="list-forms" action="/list" method="GET">
-        <button type="submit">Clear filters</button>
-      </form>
-      <br>
-      <br>
-      <br>
-      <br>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Machine</th>
-            <th scope="col">Date</th>
-            <th scope="col">Technician</th>
-            <th scope="col">Synthesis</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each logs}}
-          <tr>
-            <td class="td">
-              {{this.machine.machine}}
-            </td>
-            <td class="td">
-              {{dateFormat this.date "DD/MM/YYYY"}}
-            </td>
-            <td class="td">
-              {{this.technician.username}}
-            </td>
-            <td class="td">
-              <a href="/details/{{this._id}}">{{this.synthesis}}</a>
-            </td>
-          </tr>
-          {{/each}}
-        </tbody>
-      </table>
+  <div class="main">
+    <div class="card mx-auto" style="width: 40rem;">
+      <div class="card-body">
+        <h3 class="card-title main-color text-center">List of maintenances</h3>
+        <br>
+        <form class="list-forms" action="/list" method="GET">
+          <label for=""><b>Machine</b></label>
+          <select name="machine" id="machine">
+            <option>Choose a machine</option>
+            {{#each machines}}
+            <option value="{{this._id}}" {{{isSelected this._id ../selectedMachineId}}}>{{this.machine}}</option>
+            {{/each}}
+          </select>
+          <button type="submit">Filter</button>
+        </form>
+        <form class="list-forms" action="/list" method="GET">
+          <button type="submit">Clear filters</button>
+        </form>
+        <br>
+        <br>
+        <br>
+        <br>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Machine</th>
+              <th scope="col">Date</th>
+              <th scope="col">Technician</th>
+              <th scope="col">Synthesis</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each logs}}
+            <tr>
+              <td class="td">
+                {{this.machine.machine}}
+              </td>
+              <td class="td">
+                {{dateFormat this.date "DD/MM/YYYY"}}
+              </td>
+              <td class="td">
+                {{this.technician.username}}
+              </td>
+              <td class="td">
+                <a href="/details/{{this._id}}">{{this.synthesis}}</a>
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
 
-  <div class="card color-template" style="width: 10rem; position: absolute; bottom: 24px; right: 24px; z-index: 10">
-    <img id="wicon" src="http://openweathermap.org/img/wn/{{weatherIcon}}@2x.png" class="card-img-top"
-      alt="Weather icon">
-    <div class="card-body">
-      <div class="temp text-center">Lisbon <br><br>{{temperature}}ºC</div>
+    <div class="card color-template" style="width: 10rem; position: absolute; bottom: 24px; right: 24px; z-index: 10">
+      <img id="wicon" src="http://openweathermap.org/img/wn/{{weatherIcon}}@2x.png" class="card-img-top"
+        alt="Weather icon">
+      <div class="card-body">
+        <div class="temp text-center">Lisbon <br><br>{{temperature}}ºC</div>
+      </div>
     </div>
   </div>
 </div>

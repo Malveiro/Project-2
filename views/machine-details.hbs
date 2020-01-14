@@ -1,18 +1,21 @@
 {{> header }}
 
-<h1>Machine Details</h1>
+<div style="display: flex; flex-direction:row; height: 100%">
+  {{> sidenav }}
 
-<p>Name: {{machine.machine}}</p>
-<p>Model: {{machine.model}}</p>
-<p>Info: {{machine.info}}</p>
+  <div class="main">
+    <h1>Machine Details</h1>
+
+    <p>Name: {{machine.machine}}</p>
+    <p>Model: {{machine.model}}</p>
+    <p>Info: {{machine.info}}</p>
 
 
-<form method="POST" action="/machine/{{machine._id}}/delete">
-  <button class="btn btn-primary" type="submit">Delete</button>
-</form>
-<br>
+    <form method="POST" action="/machine/{{machine._id}}/delete">
+      <button class="btn btn-primary" type="submit">Delete</button>
+    </form>
+    <br>
 
-<button class="btn btn-primary" type="button" onclick="location.href='/machine/{{machine._id}}/edit'">Edit</button>
-<br>
-<br>
-<button class="btn btn-primary" type="button" onclick="location.href='/machine-list'">Back to list of machines</button>
+    <button class="btn btn-primary" type="button" onclick="location.href='/machine/{{machine._id}}/edit'">Edit</button>
+  </div>
+</div>
