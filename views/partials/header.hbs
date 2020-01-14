@@ -1,4 +1,4 @@
-<div class="d-flex flex-column flex-md-row align-items-center px-md-4 mb-3 bg-white border-bottom box-shadow">
+<header class="d-flex flex-column flex-md-row align-items-center px-md-4 bg-white border-bottom">
   <img class="header-image my-0 mr-md-auto" src="/images/large_boltwork.png" alt="Logo">
 
   {{#if user}}
@@ -7,6 +7,7 @@
     {{checkingDate message}}
     {{user.username}}
   </b></span>
+  
 
   <form action="/logout" method="POST" id="form">
     <button class="btn btn-primary ml-3" type="submit">Logout</button>
@@ -16,4 +17,4 @@
   <a class="btn btn-primary ml-3" href="/signup">Signup</a>
   <a class="btn btn-primary ml-3" href="/login">Login</a>
   {{/if}}
-</div>
+</header>

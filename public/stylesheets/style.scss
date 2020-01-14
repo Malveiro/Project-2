@@ -1,5 +1,6 @@
 html {
   height: 100%;
+  overflow-y: hidden;
 }
 
 body {
@@ -176,6 +177,7 @@ a {
   height: 100px;
 }
 
+<<<<<<< HEAD
 .weather {
   margin-top: -100px;
 }
@@ -186,4 +188,75 @@ a {
 
 .entire-page {
   margin-left: 20px;
+=======
+.main {
+  height: calc(100% - 100px);
+  overflow-y: auto;
+  width: 100%;
+  padding: 24px;
+}
+
+.color-template{
+  background-color: #0069D9;
+  color: white;
+}
+
+/* The sidebar menu */
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  min-width: 228px; /* Set the width of the sidebar */
+ 
+  background-color: #0069D9;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #27459A;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.margin-left{
+  margin-left: 300px;
+}
+
+header {
+  box-shadow: 0px 5px 5px 0px rgba(0,105,217,0.5);
+}
+
+
+.sidenav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.sidenav li a {
+  display: block;
+  color: white;
+  padding: 16px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+.sidenav li a:hover {
+  background-color: #fff;
+  color: #0069D9;
+>>>>>>> 005690c988ff7425091534fb6559a0a54426b188
 }
