@@ -29,25 +29,25 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col">Machine</th>
-              <th scope="col">Date</th>
-              <th scope="col">Technician</th>
-              <th scope="col">Synthesis</th>
+              <th class="th" cope="col">Machine</th>
+              <th class="th" scope="col">Date</th>
+              <th class="th" scope="col">Technician</th>
+              <th class="th" class="st" scope="col">Synthesis</th>
             </tr>
           </thead>
           <tbody>
             {{#each logs}}
             <tr>
-              <td class="td">
+              <td class="td ml">
                 {{this.machine.machine}}
               </td>
-              <td class="td">
+              <td class="td mm">
                 {{dateFormat this.date "DD/MM/YYYY"}}
               </td>
               <td class="td">
                 {{this.technician.username}}
               </td>
-              <td class="td">
+              <td class="td st">
                 <a href="/details/{{this._id}}">{{this.synthesis}}</a>
               </td>
             </tr>

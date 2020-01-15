@@ -140,6 +140,26 @@ a {
   white-space: nowrap;
 }
 
+.lm {
+  padding-left: 20px;
+}
+
+.st {
+  padding-left: 15px;
+}
+
+.ml {
+  margin-left: 20px;
+}
+
+.mh {
+  padding-right: -10px;
+}
+
+.mm {
+  margin-left: 20px;
+}
+
 .grid {
   font-size: 17px;
   padding-right: 10px;
@@ -177,18 +197,6 @@ a {
   height: 100px;
 }
 
-<<<<<<< HEAD
-.weather {
-  margin-top: -100px;
-}
-
-.temp {
-  margin-right: 30px;
-}
-
-.entire-page {
-  margin-left: 20px;
-=======
 .main {
   height: calc(100% - 100px);
   overflow-y: auto;
@@ -258,5 +266,4 @@ header {
 .sidenav li a:hover {
   background-color: #fff;
   color: #0069D9;
->>>>>>> 005690c988ff7425091534fb6559a0a54426b188
 }
