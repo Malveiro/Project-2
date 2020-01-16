@@ -5,15 +5,15 @@
 
   <div class="main">
     <form action="/machine/{{machine._id}}/edit" method="POST">
-      <label for="">Name</label>
+      <label for="">Name</label><br>
       <input type="text" name="machine" maxlength="10" required value="{{machine.machine}}">
-      <br>
-      <label for="">Model</label>
+      <br><br>
+      <label for="">Model</label><br>
       <input type="text" name="model" value="{{machine.model}}">
-      <br>
-      <label for="">Info</label>
+      <br><br>
+      <label for="">Info</label><br>
       <input type="text" name="info" value="{{machine.info}}">
-      <br>
+      <br><br>
 
       <button type="submit">Save</button>
       <button type="button" onclick="location.href='/machine/{{machine._id}}'">Cancel</button>
