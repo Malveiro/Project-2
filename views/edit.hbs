@@ -1,3 +1,4 @@
+<!--
 {{> header }}
 
 <div style="display: flex; flex-direction:row; height: 100%">
@@ -26,6 +27,38 @@
       <br>
       <button type="submit">Edit</button>
       <button type="button" onclick="location.href='/list'">Cancel</button>
+    </form>
+  </div>
+</div>
+-->
+{{> header }}
+
+<div style="display: flex; flex-direction:row; height: 100%">
+  {{> sidenav }}
+
+  <div class="main">
+    <form action="/edit?log_id={{log._id}}" method="POST">
+      <label for="">Machine</label><br>
+      <select name="machine" required id="machine">
+        <option value="">Choose a machine</option>
+        {{#each machines}}
+        <option value="{{this._id}}" {{{isSelected this.machine ../log.machine.machine}}}>{{this.machine}}</option>
+        {{/each}}
+      </select><br><br>
+      <label for="">Date</label><br>
+      <input type="date" name="date" required value="{{dateFormat log.date "YYYY-MM-DD"}}"><br><br>
+      <label for="">Synthesis</label><br>
+      <input type="text" name="synthesis" maxlength="30" required value="{{log.synthesis}}"><br><br>
+      <label for="">Other Technician</label><br>
+      <input type="text" name="otherTechnician" value="{{log.otherTechnician}}"><br><br>
+      <label for="">Description</label><br>
+      <input type="text" name="description" value="{{log.description}}"><br><br>
+      <label for="">Technician</label><br>
+      <input type="text" name="technician" value="{{log.technician.username}}" readonly><br><br>
+      <br>
+      <br>
+      <button type="submit" class="btn btn-primary">Edit</button>
+      <button type="button" class="btn btn-primary" onclick="location.href='/list'">Cancel</button>
     </form>
   </div>
 </div>

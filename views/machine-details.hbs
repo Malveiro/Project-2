@@ -1,3 +1,4 @@
+<!--
 {{> header }}
 
 <div style="display: flex; flex-direction:row; height: 100%">
@@ -19,3 +20,61 @@
     <button class="btn btn-primary" type="button" onclick="location.href='/machine/{{machine._id}}/edit'">Edit</button>
   </div>
 </div>
+-->
+
+{{> header }}
+
+<div style="display: flex; flex-direction:row; height: 100%">
+  {{> sidenav }}
+  <div class="main">
+  <!--  
+    <div>  
+    <div>  
+    <h1>Details</h1></div>
+    <p>Machine: {{logs.machine.machine}}</p>
+    <p>Date: {{dateFormat logs.date "DD/MM/YYYY"}}</p>
+    <p>Synthesis: {{logs.synthesis}}</p>
+    <p>Technician: {{logs.technician.username}}</p>
+    <p>Other Technician: {{logs.otherTechnician}}</p>
+    <p>Description: {{logs.description}}</p>
+  </div-->
+  
+  {{> header }}
+
+<div style="display: flex; flex-direction:row; height: 100%">
+  {{> sidenav }}
+  <div class="main">
+    <!--
+    <div>
+    <div>  
+    <h1>Machine Details</h1></div><br>
+    <p>Name: {{machine.machine}}</p>
+    <p>Model: {{machine.model}}</p>
+    <p>Info: {{machine.info}}</p>
+    </div>
+-->
+
+    <div>
+      <div>
+        <h1>Machine Details</h1></div><br>
+        <label for="">Name</label><br>
+        <input type="text" name="machine-name" value="{{machine.machine}}" readonly><br><br>
+      <label for="">Model</label><br>
+      <input type="text" name="model" value="{{machine.model}}" readonly><br><br>
+      <label for="">Info</label><br>
+      <input type="text" name="info" value="{{machine.info}}" readonly><br><br>
+      </div>
+    
+
+<div class="btns-1">
+    <form method="POST" action="/machine/{{machine._id}}/delete">
+      <button class="btn btn-primary" type="submit">Delete</button>
+    </form>
+    <br>
+    <button class="btn btn-primary bt-ed" type="button" onclick="location.href='/machine/{{machine._id}}/edit'">Edit</button>
+  </div>
+  </div>
+  </div>
+</div>
+
+

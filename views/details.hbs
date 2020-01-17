@@ -1,3 +1,4 @@
+<!--
 {{> header }}
 
 <div style="display: flex; flex-direction:row; height: 100%">
@@ -19,5 +20,52 @@
     <br>
 
     <button class="btn btn-primary" type="button" onclick="location.href='/edit?log_id={{logs._id}}'">Edit</button>
+  </div>
+</div>
+-->
+
+{{> header }}
+
+<div style="display: flex; flex-direction:row; height: 100%">
+  {{> sidenav }}
+  <div class="main">
+  <!--  
+    <div>  
+    <div>  
+    <h1>Details</h1></div>
+    <p>Machine: {{logs.machine.machine}}</p>
+    <p>Date: {{dateFormat logs.date "DD/MM/YYYY"}}</p>
+    <p>Synthesis: {{logs.synthesis}}</p>
+    <p>Technician: {{logs.technician.username}}</p>
+    <p>Other Technician: {{logs.otherTechnician}}</p>
+    <p>Description: {{logs.description}}</p>
+  </div-->
+  
+  <div>
+      <div>
+        <h1>Details</h1></div><br>
+      <label for="">Machine</label><br>
+      <input type="text" name="machine" value="{{logs.machine.machine}}" readonly><br><br>
+      <label for="">Date</label><br>
+      <input type="text" name="date" value="{{dateFormat logs.date "DD/MM/YYYY"}}" readonly><br><br>
+      <label for="">Synthesis</label><br>
+      <input type="text" name="synthesis" value="{{logs.synthesis}}" readonly><br><br>
+      <label for="">Technician</label><br>
+      <input type="text" name="technician" value="{{logs.technician.username}}" readonly><br><br>
+      <label for="">Other Technician</label><br>
+      <input type="text" name="ot" value="{{logs.otherTechnician}}" readonly><br><br>
+      <label for="">Description</label><br>
+      <input type="text" name="synthesis" value="{{logs.description}}" readonly><br><br>
+      </div>
+    
+
+  <div class="btns">
+    <form method="POST" action="/details/{{logs._id}}/delete">
+      <button type="button" class="btn btn-primary" type="submit">Delete</button>
+    </form>
+    <br>
+    <button class="btn btn-primary bt-ed" type="button" onclick="location.href='/edit?log_id={{logs._id}}'">Edit</button>
+  </div>  
+  </div>
   </div>
 </div>
