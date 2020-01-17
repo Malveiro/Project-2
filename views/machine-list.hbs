@@ -1,4 +1,3 @@
-<div class="entire-page">
 {{> header }}
 
 <div style="display: flex; flex-direction:row; height: 100%">
@@ -12,9 +11,9 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th class="th" scope="col">Name</th>
-              <th class="th mh" scope="col">Model</th>
-              <th class="th" scope="col">Info</th>
+              <th scope="col">Name</th>
+              <th scope="col">Model</th>
+              <th scope="col">Info</th>
             </tr>
           </thead>
           <tbody>
@@ -24,7 +23,7 @@
               <td class="td">
                 <a href="/machine/{{this._id}}">{{this.machine}}</a>
               </td>
-              <td class="td lm">
+              <td class="td">
                 {{this.model}}
               </td>
               <td class="td">

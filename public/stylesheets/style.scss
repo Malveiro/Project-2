@@ -6,7 +6,8 @@ html {
 body {
   width: 100%;
   height: 100%;
-  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 body::after {
@@ -30,10 +31,6 @@ a {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  margin-top: 0px;
-}
-
-.weather {
   margin-top: 50px;
 }
 
@@ -140,26 +137,6 @@ a {
   white-space: nowrap;
 }
 
-.lm {
-  padding-left: 20px;
-}
-
-.st {
-  padding-left: 15px;
-}
-
-.ml {
-  margin-left: 20px;
-}
-
-.mh {
-  padding-right: -10px;
-}
-
-.mm {
-  margin-left: 20px;
-}
-
 .grid {
   font-size: 17px;
   padding-right: 10px;
@@ -232,10 +209,6 @@ a {
   padding-right: 10px;
 }
 
-#wicon {
-  height: 60px;
-  margin-right: 17px;
-}
 .main-color {
   color: #1478bb;
   font-weight: 600;

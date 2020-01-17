@@ -1,58 +1,9 @@
-<!--
-{{> header }}
-
-<div style="display: flex; flex-direction:row; height: 100%">
-  {{> sidenav }}
-
-  <div class="main">
-    <h1>Machine Details</h1>
-
-    <p>Name: {{machine.machine}}</p>
-    <p>Model: {{machine.model}}</p>
-    <p>Info: {{machine.info}}</p>
-
-
-    <form method="POST" action="/machine/{{machine._id}}/delete">
-      <button class="btn btn-primary" type="submit">Delete</button>
-    </form>
-    <br>
-
-    <button class="btn btn-primary" type="button" onclick="location.href='/machine/{{machine._id}}/edit'">Edit</button>
-  </div>
-</div>
--->
-
 {{> header }}
 
 <div style="display: flex; flex-direction:row; height: 100%">
   {{> sidenav }}
   <div class="main">
-  <!--  
-    <div>  
-    <div>  
-    <h1>Details</h1></div>
-    <p>Machine: {{logs.machine.machine}}</p>
-    <p>Date: {{dateFormat logs.date "DD/MM/YYYY"}}</p>
-    <p>Synthesis: {{logs.synthesis}}</p>
-    <p>Technician: {{logs.technician.username}}</p>
-    <p>Other Technician: {{logs.otherTechnician}}</p>
-    <p>Description: {{logs.description}}</p>
-  </div-->
   
-  {{> header }}
-
-<div style="display: flex; flex-direction:row; height: 100%">
-  {{> sidenav }}
-  <div class="main">
-    <!--
-    <div>
-    <div>  
-    <h1>Machine Details</h1></div><br>
-    <p>Name: {{machine.machine}}</p>
-    <p>Model: {{machine.model}}</p>
-    <p>Info: {{machine.info}}</p>
-    </div>
--->
 
     <div>
       <div>
