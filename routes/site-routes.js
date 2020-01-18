@@ -20,7 +20,7 @@ router.use((req, res, next) => {
 //     |
 //     V
 router.get("/machine", (req, res) => {
-  res.render("machine", { user: req.session.user });
+  res.render("machine", { user: req.session.user, message: "Good morning" });
 });
 
 router.get("/add", (req, res) => {
