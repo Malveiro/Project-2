@@ -19,11 +19,11 @@ router.use((req, res, next) => {
 }); // ------------------------------------
 //     |
 //     V
-router.get("/machine", (req, res, next) => {
-  res.render("machine");
+router.get("/machine", (req, res) => {
+  res.render("machine", { user: req.session.user });
 });
 
-router.get("/add", (req, res, next) => {
+router.get("/add", (req, res) => {
   Machine.find()
     .then(machines => {
       res.render("add", {
@@ -42,7 +42,7 @@ router.get("/add", (req, res, next) => {
     });
 });
 
-router.get("/edit", (req, res, next) => {
+router.get("/edit", (req, res) => {
   let logID = req.query.log_id;
 
   console.log(logID);
@@ -67,11 +67,10 @@ router.get("/edit", (req, res, next) => {
 });
 
 router.post("/edit", (req, res) => {
-  let logID = req.query.log_id;
   const { machine, date, synthesis, otherTechnician, description } = req.body;
   Log.update({ _id: req.query.log_id }, { $set: { machine, date, synthesis, otherTechnician, description } })
     .then(() => {
-      res.redirect("/list");
+      res.redirect(`/details/${req.query.log_id}`);
     })
     .catch(error => {
       console.log(error);

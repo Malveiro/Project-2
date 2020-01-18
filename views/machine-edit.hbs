@@ -4,19 +4,31 @@
   {{> sidenav }}
 
   <div class="main">
-    <form action="/machine/{{machine._id}}/edit" method="POST">
-      <label for="">Name</label><br>
-      <input type="text" name="machine" maxlength="10" required value="{{machine.machine}}">
-      <br><br>
-      <label for="">Model</label><br>
-      <input type="text" name="model" value="{{machine.model}}">
-      <br><br>
-      <label for="">Info</label><br>
-      <input type="text" name="info" value="{{machine.info}}">
-      <br><br>
-
-      <button type="submit" class="btn btn-primary">Save</button>
-      <button type="button" class="btn btn-primary" onclick="location.href='/machine/{{machine._id}}'">Cancel</button>
-    </form>
+    <div class="card" style="width: 40rem;">
+      <div class="card-body">
+        <h3 class="card-title main-color text-center">Edit Machine</h3>
+        <br>
+        {{#if errorMessage}}
+        <div class="alert alert-danger" role="alert">{{ errorMessage }}</div>
+        {{/if}}
+        <form action="/machine/{{machine._id}}/edit" method="POST">
+          <div class="form-group">
+            <label for="machine">Name *</label>
+            <input type="text" name="machine" value="{{machine.machine}}" maxlength="10" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="model">Model</label>
+            <input type="text" name="model" value="{{machine.model}}" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="info">Info</label>
+            <input type="text" name="info" value="{{machine.info}}" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-outline-success">Save</button>
+          <a href="/machine/{{machine._id}}" class="btn btn-outline-danger">Cancel</a>
+          <div><small>* - Required field</small></div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>

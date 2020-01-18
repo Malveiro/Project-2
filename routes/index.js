@@ -146,7 +146,7 @@ router.post("/add", (req, res) => {
         });
       } else {
         return newMachine.save().then(newMachine => {
-          res.redirect("/add");
+          res.redirect("/machine-list");
         });
       }
     })

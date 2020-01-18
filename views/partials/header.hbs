@@ -2,17 +2,13 @@
   <img class="header-image my-0 mr-md-auto" src="/images/large_boltwork.png" alt="Logo">
 
   {{#if user}}
-
-  <span><b>
-    {{checkingDate message}}
-    {{user.username}}
-  </b></span>
-  
-
+  <span class="welcome-message">
+      {{checkingDate message}}
+      {{user.username}}
+  </span>
   <form action="/logout" method="POST" id="form">
     <button class="btn btn-primary ml-3" type="submit">Logout</button>
   </form>
-
   {{else}}
   <a class="btn btn-primary ml-3" href="/signup">Signup</a>
   <a class="btn btn-primary ml-3" href="/login">Login</a>

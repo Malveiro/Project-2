@@ -2,33 +2,42 @@
 
 <div style="display: flex; flex-direction:row; height: 100%">
   {{> sidenav }}
-  <div class="main">
-  
-  <div>
-      <div>
-        <h1>Details</h1></div><br>
-      <label for="">Machine</label><br>
-      <input type="text" name="machine" value="{{logs.machine.machine}}" readonly><br><br>
-      <label for="">Date</label><br>
-      <input type="text" name="date" value="{{dateFormat logs.date "DD/MM/YYYY"}}" readonly><br><br>
-      <label for="">Synthesis</label><br>
-      <input type="text" name="synthesis" value="{{logs.synthesis}}" readonly><br><br>
-      <label for="">Technician</label><br>
-      <input type="text" name="technician" value="{{logs.technician.username}}" readonly><br><br>
-      <label for="">Other Technician</label><br>
-      <input type="text" name="ot" value="{{logs.otherTechnician}}" readonly><br><br>
-      <label for="">Description</label><br>
-      <input type="text" name="synthesis" value="{{logs.description}}" readonly><br><br>
-      </div>
-    
 
-  <div class="btns">
-    <form method="POST" action="/details/{{logs._id}}/delete">
-      <button type="button" class="btn btn-primary" type="submit">Delete</button>
-    </form>
-    <br>
-    <button class="btn btn-primary bt-ed" type="button" onclick="location.href='/edit?log_id={{logs._id}}'">Edit</button>
-  </div>  
-  </div>
+  <div class="main">
+    <div class="card" style="width: 40rem;">
+      <div class="card-body">
+        <h3 class="card-title main-color text-center">Maintenance Details</h3>
+        <br>
+        <form method="POST" action="/details/{{logs._id}}/delete">
+        <div class="form-group">
+          <label for="machine">Machine</label>
+          <input type="text" name="machine" value="{{logs.machine.machine}}" class="form-control" readonly>
+        </div>
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input type="text" name="date" value="{{dateFormat logs.date "DD/MM/YYYY"}}" class="form-control" readonly>
+        </div>
+        <div class="form-group">
+          <label for="synthesis">Synthesis</label>
+          <input type="text" name="synthesis" value="{{logs.synthesis}}" class="form-control" class="form-control"
+            readonly>
+        </div>
+        <div class="form-group">
+          <label for="technician">Technician</label>
+          <input type="text" name="technician" value="{{logs.technician.username}}" class="form-control" readonly>
+        </div>
+        <div class="form-group">
+          <label for="otherTechnician">Other Technician</label>
+          <input type="text" name="otherTechnician" value="{{logs.otherTechnician}}" class="form-control" readonly>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea name="description" rows="4" class="form-control" readonly>{{logs.description}}</textarea>
+        </div>
+        <a href="/edit?log_id={{logs._id}}" class="btn btn-outline-primary">Edit</a>
+        <button class="btn btn-outline-warning" type="submit">Delete</button>
+        </form>
+      </div>
+    </div>
   </div>
 </div>

@@ -4,27 +4,28 @@
   {{> sidenav }}
 
   <div class="main">
-    <div class="card mx-auto" style="width: 40rem;">
+    <div class="card mx-auto">
       <div class="card-body">
         <h3 class="card-title main-color text-center">List of maintenances</h3>
         <br>
-        <form class="list-forms" action="/list" method="GET">
-          <label for=""><b>Machine</b></label>
-          <select name="machine" id="machine">
-            <option>Choose a machine</option>
-            {{#each machines}}
-            <option value="{{this._id}}" {{{isSelected this._id ../selectedMachineId}}}>{{this.machine}}</option>
-            {{/each}}
-          </select>
-          <button type="submit">Filter</button>
+        <form action="/list" method="GET">
+          <div class="form-group">
+            <label for="machine">Machine</label>
+            <select name="machine" id="machine" class="custom-select">
+              <option>Choose a machine</option>
+              {{#each machines}}
+              <option value="{{this._id}}" {{{isSelected this._id ../selectedMachineId}}}>{{this.machine}}</option>
+              {{/each}}
+            </select>
+          </div>
+          <button type="submit" class="btn btn-outline-primary">Filter</button>
+          {{#if selectedMachineId}}
+          <a href="/list" class="btn btn-outline-primary">Clear Filters</a>
+          {{/if}}
         </form>
-        <form class="list-forms" action="/list" method="GET">
-          <button type="submit">Clear filters</button>
-        </form>
         <br>
         <br>
-        <br>
-        <br>
+
         <table class="table table-hover">
           <thead>
             <tr>
@@ -53,14 +54,18 @@
             {{/each}}
           </tbody>
         </table>
+
       </div>
     </div>
 
-    <div class="card color-template" style="width: 10rem; position: absolute; bottom: 24px; right: 24px; z-index: 10">
-      <img id="wicon" src="http://openweathermap.org/img/wn/{{weatherIcon}}@2x.png" class="card-img-top"
-        alt="Weather icon">
+    <div class="card weather">
+      <img src="http://openweathermap.org/img/wn/{{weatherIcon}}@2x.png" class="card-img-top" alt="Weather icon">
       <div class="card-body">
-        <div class="temp text-center">Lisbon <br><br>{{temperature}}ºC</div>
+        <div class="card-text text-center">
+          Lisbon
+          <br>
+          {{temperature}}&deg;C
+        </div>
       </div>
     </div>
   </div>

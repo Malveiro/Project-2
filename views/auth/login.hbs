@@ -6,15 +6,11 @@
       <form action="/login" method="POST" id="form">
         <div class="forms">
           <input type="text" name="username" class="form-control" placeholder="Username">
-        </div>
-        <div class="forms">
-          <input type="password" name="password" class="form-control" placeholder="password">
-        </div>
-        {{#if errorMessage }}
-        <div class="error-message forms">{{ errorMessage }}</div>
-        {{/if}}
-        <div class="forms">
-          <button type="submit" class="btn btn-primary btn-block">Login</button>
+          <input type="password" name="password" class="form-control" placeholder="Password">
+          {{#if errorMessage }}
+          <div class="alert alert-danger" role="alert">{{errorMessage}}</div>
+          {{/if}}
+          <button type="submit" class="btn btn-primary">Login</button>
         </div>
         <p class="text-center">
           Don't have an account? <a href="/signup">Signup</a>

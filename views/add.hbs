@@ -4,28 +4,41 @@
   {{> sidenav }}
 
   <div class="main">
-    <form class="form" action="/list" method="POST">
-      <label for="">Machine</label><br>
-      <select required name="machine" id="machine">
-        <option value="">Choose a machine</option>
-        {{#each machines}}
-        <option value="{{this._id}}">{{this.machine}}</option>
-        {{/each}}
-      </select><br><br>
-      <label for="">Date</label><br>
-      <input type="date" name="date" required><br><br>
-      <label for="">Synthesis</label><br>
-      <input type="text" name="synthesis" maxlength="30" required><br><br>
-      <label for="">Other Technician</label><br>
-      <input type="string" name="otherTechnician"><br><br>
-      <label for="">Description</label><br>
-      <input type="string" name="description">
-      <br>
-      <br>
-      <button class="btn btn-primary" type="submit">Submit</button>
-      <br>
-    </form>
-    <br>
-    <button class="btn btn-primary" type="button" onclick="location.href='/list'">Cancel</button>
-  </div>
-</div>
+    <div class="card" style="width: 40rem;">
+      <div class="card-body">
+        <h3 class="card-title main-color text-center">Add New Maintenance</h3>
+        <br>
+        {{#if errorMessage}}
+        <div class="alert alert-danger" role="alert">{{ errorMessage }}</div>
+        {{/if}}
+        <form class="form" action="/list" method="POST">
+          <div class="form-group">
+            <label for="machine">Machine *</label>
+            <select name="machine" class="form-control" required>
+              <option value="">Choose a machine</option>
+              {{#each machines}}
+              <option value="{{this._id}}">{{this.machine}}</option>
+              {{/each}}
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="date">Date *</label>
+            <input type="date" name="date" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="synthesis">Synthesis *</label>
+            <input type="text" name="synthesis" maxlength="30" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="otherTechnician">Other Technician</label>
+            <input type="text" name="otherTechnician" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea name="description" rows="4" class="form-control"></textarea>
+          </div>
+          <button type="submit" class="btn btn-outline-success">Add</button>
+          <div><small>* - Required field</small></div>
+        </form>
+      </div>
+    </div>
